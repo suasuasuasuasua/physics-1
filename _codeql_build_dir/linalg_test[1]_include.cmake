@@ -1,5 +1,0 @@
-if(EXISTS "/home/runner/work/physics-1/physics-1/_codeql_build_dir/linalg_test[1]_tests.cmake")
-  include("/home/runner/work/physics-1/physics-1/_codeql_build_dir/linalg_test[1]_tests.cmake")
-else()
-  add_test(linalg_test_NOT_BUILT linalg_test_NOT_BUILT)
-endif()

@@ -1,1 +1,0 @@
-/home/runner/work/physics-1/.codeql-scratch/dbs/cpp/working/autobuild/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/hello_test.dir/link.d CMakeFiles/hello_test.dir/tests/cpp/test_example.cpp.o -o hello_test  lib/libgtest_main.a lib/libgtest.a
