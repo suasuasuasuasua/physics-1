@@ -26,6 +26,6 @@ jobs:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: false
     - name: Build and install
-      run: pip install --verbose . --group test
+      run: make build && pip install --verbose . --group test
     - name: Test
       run: make test
