@@ -3,7 +3,6 @@
 #include <pybind11/pybind11.h>
 
 #include <csignal>
-#include <exception>
 #include <stdexcept>
 
 namespace py = pybind11;
