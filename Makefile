@@ -5,7 +5,7 @@ build:
 install:
 	pip install .
 # package as wheel
-dist:
+wheel:
 	python -m build --wheel
 # run unit tests
 test:
