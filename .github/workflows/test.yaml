@@ -27,7 +27,7 @@ jobs:
         allow-prereleases: false
     - name: Build and install
       run: >
-        pip install --groups dev --groups build
+        pip install --group dev --group build
         make build wheel
         pip install dist/*
     - name: Test
