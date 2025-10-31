@@ -3,7 +3,7 @@ build:
 	cmake --build build
 # install the python package
 install:
-	pip install .
+	pip install . --no-deps --force-reinstall
 # package as wheel
 wheel:
 	python -m build --wheel
