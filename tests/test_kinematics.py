@@ -80,11 +80,13 @@ class TestFreeFallProblems:
         Problem: A ball is dropped from 100 m.
         What is its velocity when it hits the ground?
         """
-        h0 = 100.0
-        v0 = 0.0
-        h_ground = 0.0
+        h0 = 100.0  # initial height
+        v0 = 0.0    # initial velocity (dropped)
+        h_ground = 0.0  # final height
         
         # Calculate final velocity magnitude
+        # Parameters: (initial_velocity, final_position, initial_position, acceleration)
+        # v² = v0² + 2*a*(x_final - x_initial)
         v_magnitude = phys.kinematics.velocity_from_position(v0, h_ground, h0, self.g)
         
         # Expected: |v| = sqrt(2*g*h) = sqrt(2*9.8*100) ≈ 44.3 m/s

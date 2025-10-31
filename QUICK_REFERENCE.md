@@ -58,13 +58,18 @@ Calculate velocity from position using kinematics.
 - `x0` - Initial position (m)
 - `a` - Acceleration (m/s²)
 
-**Returns:** Velocity at position x (m/s)
+**Returns:** Velocity magnitude at position x (m/s, always positive)
 
 **Example:**
 ```python
 # Ball thrown up at 20 m/s, what's velocity at 15m height?
+# Parameters: (initial_velocity, final_position, initial_position, acceleration)
 v = phys.kinematics.velocity_from_position(20, 15, 0, -9.8)
-# Result: ~10.8 m/s
+# Result: ~10.8 m/s (magnitude only)
+
+# Ball dropped from 100m, what's velocity at ground?
+v = phys.kinematics.velocity_from_position(0, 0, 100, -9.8)
+# Result: ~44.3 m/s (magnitude, moving downward)
 ```
 
 ---
