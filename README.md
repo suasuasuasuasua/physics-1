@@ -14,6 +14,32 @@ understand the material
 - Work through and implement the practice problems as test cases to ensure that
 my code works
 
+## Quick Start
+
+Ensure that these programs are installed. See `devenv.nix` for automatic
+installation using `nix`.
+
+```text
+python3.13
+gcc (or clang)
+```
+
+The `Makefile` has the following utility functions.
+
+```bash
+# build and install the python package
+make # or make install
+
+# build the python wheel file
+make dist
+
+# run tests in the tests/ folder
+make test
+
+# clean the cached directory
+make clean
+```
+
 ## Course Material
 
 - [MIT Course Wave](https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/)
