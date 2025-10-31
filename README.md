@@ -16,13 +16,16 @@ my code works
 
 ## Quick Start
 
-Ensure that these programs are installed. See `devenv.nix` for automatic
-installation using `nix`.
+Ensure that these programs are installed.
 
 ```text
+cmake
+gcc (or any C/C++ copmiler like clang)
+make
 python3.13
-gcc (or clang)
 ```
+
+See `devenv.nix` for automatic installation using `nix`.
 
 The `Makefile` has the following utility functions.
 
