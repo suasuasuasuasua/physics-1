@@ -1,4 +1,5 @@
 #include <example/functions.h>
+#include <linalg/vector.h>
 #include <pybind11/pybind11.h>
 
 #define STRINGIFY(x) #x
@@ -19,6 +20,7 @@ PYBIND11_MODULE(_core, m, py::mod_gil_not_used(),
     )pbdoc";
 
   example::init_example(m);
+  linalg::init_linalg(m);
 
 #ifdef VERSION_INFO
   m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);

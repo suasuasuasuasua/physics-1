@@ -1,27 +1,16 @@
 """
-Pybind11 example plugin
------------------------
 
-.. currentmodule:: physics_1.example
+        Physics 1 Module
+        -----------------------
 
-.. autosummary::
-    :toctree: _generate
+        .. currentmodule:: physics_1
 
-    add
-    subtract
+        .. autosummary::
+           :toctree: _generate
+    
 """
-
-def add(i: int, j: int) -> int:
-    """
-    Add two numbers
-    """
-
-def sub(i: int, j: int) -> int:
-    """
-    Subtract two numbers
-    """
-
-def mul(i: float, j: float) -> float:
-    """
-    Multiply two numbers
-    """
+from __future__ import annotations
+from . import example
+from . import linalg
+__all__: list[str] = ['example', 'linalg']
+__version__: str = '0.1.0'
