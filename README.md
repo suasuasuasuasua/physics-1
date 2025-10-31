@@ -30,8 +30,11 @@ See `devenv.nix` for automatic installation using `nix`.
 The `Makefile` has the following utility functions.
 
 ```bash
-# build and install the python package
-make # or make install
+# build the python package
+make 
+
+# install the python package
+make install
 
 # build the python wheel file
 make dist

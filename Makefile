@@ -1,3 +1,6 @@
+build:
+	cmake -S . -B build
+	cmake --build build
 # install the python package
 install:
 	pip install .
