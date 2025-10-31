@@ -26,7 +26,7 @@ jobs:
         allow-prereleases: false
 
     - name: Build and install
-      run: pip install --verbose . --group dev
+      run: pip install --verbose . --group test
 
     - name: Test
       run: pytest -v
