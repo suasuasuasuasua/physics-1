@@ -53,4 +53,4 @@ make clean
 ## References
 
 - [pybind11 Documentation](https://pybind11.readthedocs.io/en/stable/)
-- The CMake example from [scikit](https://github.dev/pybind/scikit_build_example)
+- The CMake example from [scikit](https://github.com/pybind/scikit_build_example)
