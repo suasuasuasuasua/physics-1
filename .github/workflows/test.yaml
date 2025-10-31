@@ -19,14 +19,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
-
+      with:
+        submodule: recursive
     - uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: false
-
     - name: Build and install
       run: pip install --verbose . --group test
-
     - name: Test
       run: pytest -v
