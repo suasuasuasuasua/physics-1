@@ -11,7 +11,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 set(PYBIND11_FINDPYTHON ON)
 add_subdirectory(extern/pybind11)
 
-python_add_library(_core MODULE src/main.cpp WITH_SOABI)
+# Include directories
+include_directories(inc)
+
+# Build the Python module
+python_add_library(_core MODULE 
+    src/main.cpp 
+    src/kinematics.cpp
+    WITH_SOABI)
 target_link_libraries(_core PRIVATE pybind11::headers)
 
 # This is passing in the version as a define just as an example
