@@ -20,5 +20,6 @@ lint:
 	ruff check src
 # clean the cached directory
 clean:
-	cmake --build build --target clean
-	ruff clean
+	cmake --build build --target clean # run the clean target
+	ruff clean # clear any python cache files
+	rm dist/* # remove any wheel builds
