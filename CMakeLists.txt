@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 project(
-  ${SKBUILD_PROJECT_NAME}
-  VERSION ${SKBUILD_PROJECT_VERSION}
+  # manually update these. using variable is sort of finnicky
+  physics_1
+  VERSION 0.1.0
   LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
