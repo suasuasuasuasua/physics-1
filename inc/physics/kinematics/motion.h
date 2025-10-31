@@ -37,15 +37,18 @@ double position(double x0, double v0, double t, double a);
 double velocity_at_time(double v0, double t, double a);
 
 /**
- * Calculate velocity from position using kinematics
+ * Calculate velocity magnitude from position using kinematics
  * 
  * Equation: v^2 = v0^2 + 2*a*(x - x0)
+ * 
+ * Note: Returns velocity magnitude (always positive). For signed velocity
+ * including direction, use velocity_at_time() if you know the time.
  * 
  * @param v0 Initial velocity (m/s)
  * @param x Final position (m)
  * @param x0 Initial position (m)
  * @param a Acceleration (m/s^2)
- * @return Velocity at position x (m/s)
+ * @return Velocity magnitude at position x (m/s, always positive)
  */
 double velocity_from_position(double v0, double x, double x0, double a);
 

@@ -84,11 +84,13 @@ class TestFreeFallProblems:
         v0 = 0.0
         h_ground = 0.0
         
-        # Calculate final velocity
-        v_final = phys.kinematics.velocity_from_position(v0, h_ground, h0, self.g)
+        # Calculate final velocity magnitude
+        v_magnitude = phys.kinematics.velocity_from_position(v0, h_ground, h0, self.g)
         
-        # Expected: v = sqrt(2*g*h) = sqrt(2*9.8*100) ≈ 44.3 m/s (downward)
-        assert abs(v_final - 44.3) < 0.1
+        # Expected: |v| = sqrt(2*g*h) = sqrt(2*9.8*100) ≈ 44.3 m/s
+        # Note: velocity_from_position returns magnitude (always positive)
+        # Use velocity_at_time for signed velocity
+        assert abs(v_magnitude - 44.3) < 0.1
     
     def test_thrown_upward(self):
         """

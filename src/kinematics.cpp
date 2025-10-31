@@ -21,9 +21,10 @@ double velocity_from_position(double v0, double x, double x0, double a) {
         throw std::invalid_argument("No real velocity solution (negative v^2)");
     }
     
-    // Return signed velocity (preserve direction)
-    // Positive if moving in positive direction, negative otherwise
-    return (v_squared >= 0) ? std::sqrt(v_squared) : -std::sqrt(-v_squared);
+    // Return velocity magnitude (positive square root)
+    // Direction depends on context - caller must interpret
+    // For most physics problems, use velocity_at_time for signed velocity
+    return std::sqrt(v_squared);
 }
 
 double time_to_position(double x0, double x, double v0, double a) {

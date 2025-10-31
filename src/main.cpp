@@ -98,9 +98,12 @@ PYBIND11_MODULE(_core, m, py::mod_gil_not_used(),
   kinematics.def("velocity_from_position", &physics::kinematics::velocity_from_position,
       py::arg("v0"), py::arg("x"), py::arg("x0"), py::arg("a"),
       R"pbdoc(
-          Calculate velocity from position using kinematics.
+          Calculate velocity magnitude from position using kinematics.
           
           Equation: v^2 = v0^2 + 2*a*(x - x0)
+          
+          Note: Returns velocity magnitude (always positive). For signed velocity
+          including direction, use velocity_at_time() if you know the time.
           
           Parameters
           ----------
@@ -116,7 +119,7 @@ PYBIND11_MODULE(_core, m, py::mod_gil_not_used(),
           Returns
           -------
           float
-              Velocity at position x (m/s)
+              Velocity magnitude at position x (m/s, always positive)
       )pbdoc");
   
   kinematics.def("time_to_position", &physics::kinematics::time_to_position,
