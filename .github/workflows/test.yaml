@@ -26,7 +26,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: false
     - name: Build and install
-      run: >
+      run: |
         pip install --group dev --group build
         make build wheel
         pip install dist/*
