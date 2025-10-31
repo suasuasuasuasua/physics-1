@@ -7,8 +7,13 @@ install:
 # package as wheel
 wheel:
 	python -m build --wheel
-# run unit tests
-test:
+# run all tests
+test: test-cpp test-python
+# run c++ core unit tests
+test-cpp:
+	cd build && ctest --output-on-failure
+# run python problem set tests
+test-python:
 	python -m pytest -v
 # run formatting tasks
 format:

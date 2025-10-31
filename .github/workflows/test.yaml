@@ -28,4 +28,4 @@ jobs:
     - name: Build and install
       run: pip install --verbose . --group test
     - name: Test
-      run: pytest -v
+      run: make test
