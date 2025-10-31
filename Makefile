@@ -18,3 +18,4 @@ lint:
 # clean the cached directory
 clean:
 	cmake --build build --target clean
+	ruff clean
