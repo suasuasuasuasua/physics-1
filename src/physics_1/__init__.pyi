@@ -2,7 +2,7 @@
 Pybind11 example plugin
 -----------------------
 
-.. currentmodule:: physics_1
+.. currentmodule:: physics_1.example
 
 .. autosummary::
     :toctree: _generate
@@ -21,7 +21,7 @@ def sub(i: int, j: int) -> int:
     Subtract two numbers
     """
 
-def reduce(nums: list[float], initial: float = 0) -> int:
+def mul(i: float, j: float) -> float:
     """
-    Reduce a list
+    Multiply two numbers
     """
