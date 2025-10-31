@@ -31,10 +31,9 @@ add_subdirectory(extern/googletest)
 add_executable(hello_test tests/cpp/test_example.cpp)
 target_link_libraries(hello_test GTest::gtest_main)
 
-add_executable(linalg_test tests/cpp/test_linalg.cpp)
-target_include_directories(linalg_test PRIVATE "${CMAKE_SOURCE_DIR}/inc/"
-"${Python3_INCLUDE_DIRS}")
-target_link_libraries(linalg_test PRIVATE pybind11::headers gtest gtest_main)
+add_executable(linalg_test tests/cpp/test_linalg.cpp src/linalg/vector.cpp)
+target_include_directories(linalg_test PRIVATE "${CMAKE_SOURCE_DIR}/inc/")
+target_link_libraries(linalg_test PRIVATE pybind11::embed gtest gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(hello_test)
