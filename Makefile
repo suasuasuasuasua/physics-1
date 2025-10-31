@@ -16,7 +16,7 @@ format:
 	ruff format src
 # run linting tasks
 lint:
-	run-clang-tidy src -p build
+	run-clang-tidy src -p build -header-filter ".*inc.*"
 	ruff check src
 # clean the cached directory
 clean:
