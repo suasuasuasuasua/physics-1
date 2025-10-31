@@ -12,7 +12,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 set(PYBIND11_FINDPYTHON ON)
 add_subdirectory(extern/pybind11)
 
-python_add_library(_core MODULE src/main.cpp src/functions.cpp WITH_SOABI)
+python_add_library(_core MODULE src/main.cpp src/example/functions.cpp
+                   WITH_SOABI)
 
 # This is passing in the version as a define just as an example
 target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})

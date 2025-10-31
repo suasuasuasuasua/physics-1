@@ -1,4 +1,4 @@
-#include "example/functions.h"
+#include <example/functions.h>
 #include <pybind11/pybind11.h>
 
 #define STRINGIFY(x) #x

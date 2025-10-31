@@ -1,7 +1,9 @@
 #include "example/functions.h"
+
+#include <pybind11/pybind11.h>
+
 #include <csignal>
 #include <exception>
-#include <pybind11/pybind11.h>
 #include <stdexcept>
 
 namespace py = pybind11;
@@ -28,4 +30,4 @@ void init_example(py::module_ &m) {
       .def("mul", &example::sub, py::arg("i"), py::arg("j"), R"pbdoc(
       )pbdoc");
 }
-} // namespace example
+}  // namespace example
