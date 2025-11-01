@@ -44,7 +44,7 @@ void Vector2::y(const double &y) { y_ = std::move(y_); }
 
 std::string Vector2::toString() {
   std::stringstream ss;
-  ss << "X: " << x_ << " " << " Y: " << y_;
+  ss << "X: " << x_ << " Y: " << y_;
   return ss.str();
 }
 
