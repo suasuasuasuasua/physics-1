@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         platform: [ubuntu-latest]
-        python-version: ["3.13"]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
 
     steps:
     - uses: actions/checkout@v5
@@ -28,7 +28,7 @@ jobs:
     - name: Build and install
       run: |
         pip install --group build --group test
-        make build wheel
+        make wheel
         pip install dist/*
     - name: Test
       run: make test
