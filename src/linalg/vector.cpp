@@ -10,10 +10,13 @@ namespace py = pybind11;
 
 namespace linalg {
 Vector2 Vector2::operator+(const Vector2 &other) const {
-  return Vector2{x_ + other.x_, y_ + other.y_};
+  return {x_ + other.x_, y_ + other.y_};
 }
 Vector2 Vector2::operator-(const Vector2 &other) const {
-  return Vector2{x_ - other.x_, y_ - other.y_};
+  return {x_ - other.x_, y_ - other.y_};
+}
+Vector2 Vector2::operator*(double scalar) const {
+  return {x_ * scalar, y_ * scalar};
 }
 Vector2 &Vector2::operator+=(const Vector2 &other) {
   x_ += other.x_;
@@ -24,6 +27,14 @@ Vector2 &Vector2::operator-=(const Vector2 &other) {
   x_ -= other.x_;
   y_ -= other.y_;
   return *this;
+}
+Vector2 &Vector2::operator*=(double scalar) {
+  x_ *= scalar;
+  y_ *= scalar;
+  return *this;
+}
+Vector2 operator*(double scalar, const Vector2 &v) {
+  return {scalar * v.x(), scalar * v.y()};
 }
 
 double Vector2::x() const { return x_; }
@@ -52,6 +63,10 @@ void init_linalg(py::module_ &m) {
       .def(py::self - py::self)
       .def(py::self += py::self)
       .def(py::self -= py::self)
+      .def(py::self *= float())
+      .def(float() * py::self)
+      .def(py::self * float())
+      // .def(-py::self) // TODO: implement the negation operator
       .def("__repr__", &Vector2::toString);
 }
 }  // namespace linalg
