@@ -1,5 +1,4 @@
 #include <linalg/vector.h>
-#include <pybind11/detail/common.h>
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
@@ -61,7 +60,7 @@ void Vector2::x(const double &x) { x_ = std::move(x_); }
 double Vector2::y() const { return y_; }
 void Vector2::y(const double &y) { y_ = std::move(y_); }
 
-std::string Vector2::toString() {
+std::string Vector2::to_string() {
   std::stringstream ss;
   ss << "X: " << x_ << " Y: " << y_;
   return ss.str();
@@ -106,6 +105,6 @@ void init_linalg(py::module_ &m) {
       .def("mag", py::overload_cast<>(&Vector2::mag, py::const_))
       .def("unit", py::overload_cast<>(&Vector2::unit, py::const_))
       .def("angle", py::overload_cast<>(&Vector2::angle, py::const_))
-      .def("__repr__", &Vector2::toString);
+      .def("__repr__", &Vector2::to_string);
 }
 }  // namespace linalg

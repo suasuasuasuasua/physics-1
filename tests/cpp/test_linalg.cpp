@@ -112,6 +112,6 @@ TEST(Vector2Test, String) {
   linalg::Vector2 v1(1.1, 2.2);
   std::string repr("X: 1.1 Y: 2.2");
 
-  EXPECT_EQ(v1.toString(), repr);
+  EXPECT_EQ(v1.to_string(), repr);
 }
 }  // namespace

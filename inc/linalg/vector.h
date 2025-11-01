@@ -21,7 +21,7 @@ class Vector2 {
   friend Vector2 operator*(double f, const Vector2 &v);
   friend Vector2 operator/(double f, const Vector2 &v);
 
-  std::string toString();
+  std::string to_string();
 
   [[nodiscard]] double x() const;
   void x(const double &x);
