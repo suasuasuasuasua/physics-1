@@ -188,7 +188,7 @@ pip install .
    - src/example/functions.cpp
    - src/linalg/vector.cpp
     ↓
-9. Linker creates: _core.cpython-312-x86_64-linux-gnu.so
+9. Linker creates: _core.cpython-313-x86_64-linux-gnu.so
     ↓
 10. CMake install step copies:
     - _core.so → wheel/physics_1/

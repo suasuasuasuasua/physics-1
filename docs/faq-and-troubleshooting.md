@@ -115,6 +115,31 @@ git submodule update --init --recursive
 - System packages (less portable)
 - Manual installation (more work for contributors)
 
+### Q: Why is the repository named "physics-1" but the package is "physics_1"?
+
+**A:** Git repository names can use hyphens, but Python package names should use underscores.
+
+**Naming conventions:**
+- **Repository name**: `physics-1` (hyphens are fine in URLs and filesystem)
+- **Python package name**: `physics_1` (underscores, as hyphens aren't valid in Python identifiers)
+
+**Why this matters:**
+```python
+# This wouldn't work if package was named physics-1:
+import physics-1  # SyntaxError: invalid syntax
+physics-1.example.add(1, 2)  # Python treats hyphen as minus operator
+
+# With underscore, it works:
+import physics_1  # Valid Python identifier
+physics_1.example.add(1, 2)  # Works correctly
+```
+
+**Consistency:**
+- Repository: `physics-1` (in GitHub URL, git clone, etc.)
+- Package directory: `src/physics_1/`
+- pyproject.toml: `name = "physics_1"`
+- Python imports: `import physics_1`
+
 ### Q: Why is the directory structure so specific?
 
 **A:** Python's import system requires specific structure:
@@ -540,7 +565,7 @@ python -m build --wheel
 ```bash
 # Initial setup
 git clone <repo>
-cd physics-1
+cd physics-1  # Note: repo name has hyphen, package name is physics_1 with underscore
 git submodule update --init --recursive
 pip install -e .  # Editable install
 
