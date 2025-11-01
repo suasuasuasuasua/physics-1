@@ -7,4 +7,4 @@ target_sources(
 
 target_compile_definitions(linalg PRIVATE VERSION_INFO=${PROJECT_VERSION})
 target_include_directories(linalg PRIVATE ${CMAKE_SOURCE_DIR}/inc)
-target_link_libraries(linalg PRIVATE pybind11::headers)
+target_link_libraries(linalg PRIVATE pybind11::embed)
