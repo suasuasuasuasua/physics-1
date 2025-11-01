@@ -1,3 +1,4 @@
+#include <example/functions.h>
 #include <gtest/gtest.h>
 
 // Demonstrate some basic assertions.
@@ -6,4 +7,14 @@ TEST(HelloTest, BasicAssertions) {
   EXPECT_STRNE("hello", "world");
   // Expect equality.
   EXPECT_EQ(7 * 6, 42);
+}
+
+TEST(AddTest, BasicFunctionAssertions) {
+  EXPECT_EQ(example::add(10, 4), 14);
+  EXPECT_EQ(example::add(1234, 412341234), 412342468);
+}
+
+TEST(SubTest, BasicFunctionAssertions) {
+  EXPECT_EQ(example::sub(10, 4), 6);
+  EXPECT_EQ(example::sub(1234, 412341234), -412340000);
 }
