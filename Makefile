@@ -30,3 +30,6 @@ lint:
 clean:
 	cmake --build build --target clean
 	ruff clean
+# clean the cached directory
+clean-full:
+	rm -rf build/
