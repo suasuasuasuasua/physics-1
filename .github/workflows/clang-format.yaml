@@ -20,6 +20,8 @@ jobs:
   clang-format:
     name: Check C++ formatting
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
     - uses: actions/checkout@v5

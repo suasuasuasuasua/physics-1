@@ -16,6 +16,8 @@ jobs:
   ruff-format:
     name: Check Python formatting
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
     - uses: actions/checkout@v5
