@@ -1,0 +1,92 @@
+name: "C++ Lint (clang-tidy)"
+
+on:
+  pull_request:
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+      - '.clang-tidy'
+  push:
+    branches:
+      - main
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+      - '.clang-tidy'
+
+jobs:
+  clang-tidy:
+    name: Run clang-tidy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy cmake
+
+    - name: Build project
+      run: |
+        cmake -S . -B build
+        cmake --build build
+
+    - name: Run clang-tidy
+      run: |
+        run-clang-tidy src -p build -header-filter ".*inc.*" -format-style=file > clang-tidy-output.txt 2>&1 || true
+        cat clang-tidy-output.txt
+
+    - name: Review clang-tidy results
+      uses: actions/github-script@v7
+      if: github.event_name == 'pull_request'
+      with:
+        script: |
+          const fs = require('fs');
+          const output = fs.readFileSync('clang-tidy-output.txt', 'utf8');
+          
+          // Parse clang-tidy output for annotations
+          const lines = output.split('\n');
+          const annotations = [];
+          const warningRegex = /^(.+?):(\d+):(\d+):\s+(warning|error):\s+(.+?)\s+\[(.+?)\]$/;
+          
+          for (let i = 0; i < lines.length && annotations.length < 50; i++) {
+            const match = lines[i].match(warningRegex);
+            if (match) {
+              const [, path, line, col, level, message, check] = match;
+              // Only annotate files in the repository
+              if (path.startsWith('/home/runner/work/')) {
+                const relativePath = path.replace('/home/runner/work/physics-1/physics-1/', '');
+                if (!relativePath.includes('extern/') && !relativePath.includes('build/')) {
+                  annotations.push({
+                    path: relativePath,
+                    start_line: parseInt(line),
+                    end_line: parseInt(line),
+                    annotation_level: level === 'error' ? 'failure' : 'warning',
+                    message: `${message} [${check}]`,
+                    title: `clang-tidy: ${check}`
+                  });
+                }
+              }
+            }
+          }
+          
+          if (annotations.length > 0) {
+            await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'clang-tidy',
+              head_sha: context.payload.pull_request.head.sha,
+              status: 'completed',
+              conclusion: annotations.some(a => a.annotation_level === 'failure') ? 'failure' : 'neutral',
+              output: {
+                title: 'clang-tidy results',
+                summary: `Found ${annotations.length} issue(s)`,
+                annotations: annotations
+              }
+            });
+          }

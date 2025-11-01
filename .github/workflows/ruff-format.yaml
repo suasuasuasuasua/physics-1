@@ -1,0 +1,33 @@
+name: "Python Format (ruff)"
+
+on:
+  pull_request:
+    paths:
+      - '**.py'
+      - 'pyproject.toml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**.py'
+      - 'pyproject.toml'
+
+jobs:
+  ruff-format:
+    name: Check Python formatting
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Install ruff
+      run: pip install ruff
+
+    - name: Run ruff format check
+      run: |
+        # Exclude generated stub files
+        ruff format --check src tests --exclude "*.pyi"

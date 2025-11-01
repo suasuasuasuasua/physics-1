@@ -1,0 +1,53 @@
+name: "C++ Format (clang-format)"
+
+on:
+  pull_request:
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+      - '.clang-format'
+  push:
+    branches:
+      - main
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.hpp'
+      - '.clang-format'
+
+jobs:
+  clang-format:
+    name: Check C++ formatting
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - name: Install clang-format
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-format
+
+    - name: Run clang-format
+      run: |
+        # Find all C++ files and check formatting
+        files=$(find src inc -iname '*.h' -o -iname '*.cpp' -o -iname '*.hpp')
+        if [ -z "$files" ]; then
+          echo "No C++ files to format"
+          exit 0
+        fi
+        echo "$files" | xargs clang-format --dry-run --Werror 2>&1 | tee clang-format-output.txt || echo "Formatting issues found" > /tmp/format_failed
+
+    - name: Review clang-format results
+      if: always()
+      run: |
+        if [ -f /tmp/format_failed ]; then
+          echo "::warning::Formatting issues found. Run 'make format' to fix them."
+          if [ -s clang-format-output.txt ]; then
+            cat clang-format-output.txt
+          fi
+          exit 1
+        else
+          echo "All C++ files are properly formatted."
+        fi

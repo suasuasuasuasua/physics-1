@@ -1,0 +1,32 @@
+name: "Python Lint (ruff)"
+
+on:
+  pull_request:
+    paths:
+      - '**.py'
+      - 'pyproject.toml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**.py'
+      - 'pyproject.toml'
+
+jobs:
+  ruff-lint:
+    name: Run ruff linting
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Install ruff
+      run: pip install ruff
+
+    - name: Run ruff check with GitHub annotations
+      run: |
+        ruff check src tests --output-format=github
