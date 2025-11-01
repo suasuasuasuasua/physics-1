@@ -5,6 +5,7 @@
 #include <pybind11/stl.h>
 
 #include <sstream>
+#include <stdexcept>
 
 namespace py = pybind11;
 
@@ -17,6 +18,12 @@ Vector2 Vector2::operator-(const Vector2 &other) const {
 }
 Vector2 Vector2::operator*(double scalar) const {
   return {x_ * scalar, y_ * scalar};
+}
+Vector2 Vector2::operator/(double scalar) const {
+  if (scalar == 0.0) {
+    throw std::invalid_argument("Vector divison must not be by zero");
+  }
+  return {x_ / scalar, y_ / scalar};
 }
 Vector2 &Vector2::operator+=(const Vector2 &other) {
   x_ += other.x_;
@@ -33,8 +40,19 @@ Vector2 &Vector2::operator*=(double scalar) {
   y_ *= scalar;
   return *this;
 }
+Vector2 &Vector2::operator/=(double scalar) {
+  if (scalar == 0.0) {
+    throw std::invalid_argument("Vector divison must not be by zero");
+  }
+  x_ /= scalar;
+  y_ /= scalar;
+  return *this;
+}
 Vector2 operator*(double scalar, const Vector2 &v) {
   return {scalar * v.x(), scalar * v.y()};
+}
+Vector2 operator/(double scalar, const Vector2 &v) {
+  return {scalar / v.x(), scalar / v.y()};
 }
 
 double Vector2::x() const { return x_; }
@@ -46,6 +64,15 @@ std::string Vector2::toString() {
   std::stringstream ss;
   ss << "X: " << x_ << " Y: " << y_;
   return ss.str();
+}
+
+double Vector2::mag() const {
+  double magnitude = x_ * x_ + y_ * y_;
+  return magnitude;
+}
+Vector2 Vector2::unit() const {
+  double magnitude = mag();
+  return *this / magnitude;
 }
 
 void init_linalg(py::module_ &m) {
@@ -60,13 +87,19 @@ void init_linalg(py::module_ &m) {
       .def("y", py::overload_cast<const double &>(&Vector2::x), py::arg("y"))
       // overloads
       .def(py::self + py::self)
-      .def(py::self - py::self)
       .def(py::self += py::self)
+      .def(py::self - py::self)
       .def(py::self -= py::self)
+      .def(py::self * float())
       .def(py::self *= float())
       .def(float() * py::self)
-      .def(py::self * float())
+      .def(py::self / float())
+      .def(py::self /= float())
+      .def(float() / py::self)
       // .def(-py::self) // TODO: implement the negation operator
+      // methods
+      .def("mag", py::overload_cast<>(&Vector2::mag, py::const_))
+      .def("unit", py::overload_cast<>(&Vector2::unit, py::const_))
       .def("__repr__", &Vector2::toString);
 }
 }  // namespace linalg

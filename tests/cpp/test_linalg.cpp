@@ -1,6 +1,8 @@
 #include <gtest/gtest.h>
 #include <linalg/vector.h>
 
+#include <stdexcept>
+
 namespace {
 TEST(Vector2Test, Add) {
   linalg::Vector2 v1(1.0, 2.0);
@@ -55,6 +57,48 @@ TEST(Vector2Test, MulSelf) {
 
   EXPECT_EQ(v1.x(), 3.0);
   EXPECT_EQ(v1.y(), 6.0);
+}
+TEST(Vector2Test, Div) {
+  linalg::Vector2 v1(3.0, 6.0);
+  double scalar = 3.0;
+
+  linalg::Vector2 v3 = v1 / scalar;
+
+  EXPECT_EQ(v3.x(), 1.0);
+  EXPECT_EQ(v3.y(), 2.0);
+}
+TEST(Vector2Test, DivSelf) {
+  linalg::Vector2 v1(3.0, 6.0);
+  double scalar = 3.0;
+
+  v1 /= scalar;
+
+  EXPECT_EQ(v1.x(), 1.0);
+  EXPECT_EQ(v1.y(), 2.0);
+}
+TEST(Vector2Test, DivZero) {
+  linalg::Vector2 v1(3.0, 6.0);
+  double scalar = 0.0;
+
+  EXPECT_THROW(v1 / scalar, std::invalid_argument);
+
+  linalg::Vector2 v2 = scalar / v1;
+  EXPECT_EQ(v2.x(), 0);
+  EXPECT_EQ(v2.y(), 0);
+}
+TEST(Vector2Test, Mag) {
+  linalg::Vector2 v1(12, 34);
+  double magnitude = 1300;
+
+  EXPECT_EQ(v1.mag(), magnitude);
+}
+TEST(Vector2Test, Unit) {
+  linalg::Vector2 v1(12, 34);
+  linalg::Vector2 v2 = v1.unit();
+  double magnitude = 1300;
+
+  EXPECT_EQ(v2.x(), v1.x() / magnitude);
+  EXPECT_EQ(v2.y(), v1.y() / magnitude);
 }
 TEST(Vector2Test, String) {
   linalg::Vector2 v1(1.1, 2.2);

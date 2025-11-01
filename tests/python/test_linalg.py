@@ -63,6 +63,22 @@ def test_Vector2_MulSelf():
     assert x.x() == 4 and x.y() == 8
 
 
+def test_Vector2_Div():
+    x = linalg.Vector2(8, 12)
+    scalar = 4.0
+
+    z = x / scalar
+    assert z.x() == 2 and z.y() == 3
+
+
+def test_Vector2_DivSelf():
+    x = linalg.Vector2(8, 12)
+    scalar = 4.0
+
+    x /= scalar
+    assert x.x() == 2 and x.y() == 3
+
+
 def test_Vector2_toString():
     x = linalg.Vector2(1, 2)
 

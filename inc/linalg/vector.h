@@ -13,10 +13,13 @@ class Vector2 {
   Vector2 operator+(const Vector2 &other) const;
   Vector2 operator-(const Vector2 &other) const;
   Vector2 operator*(double scalar) const;
+  Vector2 operator/(double scalar) const;
   Vector2 &operator+=(const Vector2 &other);
   Vector2 &operator-=(const Vector2 &other);
   Vector2 &operator*=(double scalar);
+  Vector2 &operator/=(double scalar);
   friend Vector2 operator*(double f, const Vector2 &v);
+  friend Vector2 operator/(double f, const Vector2 &v);
 
   std::string toString();
 
@@ -25,11 +28,15 @@ class Vector2 {
   [[nodiscard]] double y() const;
   void y(const double &y);
 
+  [[nodiscard]] double mag() const;
+  [[nodiscard]] Vector2 unit() const;
+
  private:
   double x_{}, y_{};
 };
 
 Vector2 operator*(double f, const Vector2 &v);
+Vector2 operator/(double f, const Vector2 &v);
 
 void init_linalg(py::module_ &m);
 }  // namespace linalg
