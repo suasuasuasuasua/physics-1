@@ -30,6 +30,7 @@ class Vector2 {
 
   [[nodiscard]] double mag() const;
   [[nodiscard]] Vector2 unit() const;
+  [[nodiscard]] double angle() const;
 
  private:
   double x_{}, y_{};

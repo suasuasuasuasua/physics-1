@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <linalg/vector.h>
 
+#include <cmath>
 #include <stdexcept>
 
 namespace {
@@ -99,6 +100,13 @@ TEST(Vector2Test, Unit) {
 
   EXPECT_EQ(v2.x(), v1.x() / magnitude);
   EXPECT_EQ(v2.y(), v1.y() / magnitude);
+}
+TEST(Vector2Test, Angle) {
+  linalg::Vector2 v1(-2, 3);
+  double ang = 124 * (M_PI / 180.0);
+
+  // pretty bad estimate from the video of 124 degrees!
+  EXPECT_NEAR(v1.angle(), ang, 0.01);
 }
 TEST(Vector2Test, String) {
   linalg::Vector2 v1(1.1, 2.2);

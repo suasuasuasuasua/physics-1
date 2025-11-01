@@ -4,6 +4,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
+#include <cmath>
 #include <sstream>
 #include <stdexcept>
 
@@ -74,6 +75,10 @@ Vector2 Vector2::unit() const {
   double magnitude = mag();
   return *this / magnitude;
 }
+double Vector2::angle() const {
+  double ang = std::atan2(y_, x_);
+  return ang;
+}
 
 void init_linalg(py::module_ &m) {
   auto linalg = m.def_submodule("linalg", "A general linear algebra library");
@@ -100,6 +105,7 @@ void init_linalg(py::module_ &m) {
       // methods
       .def("mag", py::overload_cast<>(&Vector2::mag, py::const_))
       .def("unit", py::overload_cast<>(&Vector2::unit, py::const_))
+      .def("angle", py::overload_cast<>(&Vector2::angle, py::const_))
       .def("__repr__", &Vector2::toString);
 }
 }  // namespace linalg
