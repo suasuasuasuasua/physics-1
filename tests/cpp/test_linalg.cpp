@@ -108,6 +108,14 @@ TEST(Vector2Test, Angle) {
   // pretty bad estimate from the video of 124 degrees!
   EXPECT_NEAR(v1.angle(), ang, 0.01);
 }
+TEST(Vector2Test, FromMagAng) {
+  double magnitude = 2;
+  double angle = 30 * (M_PI / 180.0);
+
+  linalg::Vector2 v1 = linalg::Vector2::from_mag_ang(magnitude, angle);
+  EXPECT_NEAR(v1.x(), std::sqrt(3), 0.001);
+  EXPECT_NEAR(v1.y(), 1.0, 0.001);
+}
 TEST(Vector2Test, String) {
   linalg::Vector2 v1(1.1, 2.2);
   std::string repr("X: 1.1 Y: 2.2");

@@ -78,6 +78,11 @@ double Vector2::angle() const {
   double ang = std::atan2(y_, x_);
   return ang;
 }
+Vector2 Vector2::from_mag_ang(double magnitude, double angle) {
+  double x = magnitude * std::cos(angle);
+  double y = magnitude * std::sin(angle);
+  return {x, y};
+}
 
 void init_linalg(py::module_ &m) {
   auto linalg = m.def_submodule("linalg", "A general linear algebra library");
@@ -105,6 +110,8 @@ void init_linalg(py::module_ &m) {
       .def("mag", py::overload_cast<>(&Vector2::mag, py::const_))
       .def("unit", py::overload_cast<>(&Vector2::unit, py::const_))
       .def("angle", py::overload_cast<>(&Vector2::angle, py::const_))
+      .def_static("from_mag_ang",
+                  py::overload_cast<double, double>(&Vector2::from_mag_ang))
       .def("__repr__", &Vector2::to_string);
 }
 }  // namespace linalg

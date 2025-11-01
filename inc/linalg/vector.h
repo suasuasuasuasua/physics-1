@@ -31,6 +31,7 @@ class Vector2 {
   [[nodiscard]] double mag() const;
   [[nodiscard]] Vector2 unit() const;
   [[nodiscard]] double angle() const;
+  static Vector2 from_mag_ang(double magnitude, double angle);
 
  private:
   double x_{}, y_{};
