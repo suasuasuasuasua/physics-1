@@ -23,7 +23,7 @@ def test_Vector2_Add():
     assert z.x() == 4 and z.y() == 7
 
 
-def test_Vector2_SelfAdd():
+def test_Vector2_AddSelf():
     x = linalg.Vector2(1, 2)
     y = linalg.Vector2(3, 5)
 
@@ -39,9 +39,31 @@ def test_Vector2_Sub():
     assert z.x() == -2 and z.y() == -3
 
 
-def test_Vector2_SelfSub():
+def test_Vector2_SubSelf():
     x = linalg.Vector2(1, 2)
     y = linalg.Vector2(3, 5)
 
     x -= y
     assert x.x() == -2 and x.y() == -3
+
+
+def test_Vector2_Mul():
+    x = linalg.Vector2(1, 2)
+    scalar = 4.0
+
+    z = x * scalar
+    assert z.x() == 4 and z.y() == 8
+
+
+def test_Vector2_MulSelf():
+    x = linalg.Vector2(1, 2)
+    scalar = 4.0
+
+    x *= scalar
+    assert x.x() == 4 and x.y() == 8
+
+
+def test_Vector2_toString():
+    x = linalg.Vector2(1, 2)
+
+    assert str(x) == "X: 1 Y: 2"
