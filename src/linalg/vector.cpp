@@ -41,7 +41,7 @@ void init_linalg(py::module_ &m) {
   auto linalg = m.def_submodule("linalg", "A general linear algebra library");
 
   py::class_<Vector2D>(linalg, "Vector2D")
-      .def(py::init<double, double>(), py::arg("x"), py::arg("y"))
+      .def(py::init<double, double>(), py::arg("x") = 0.0, py::arg("y") = 0.0)
       // members
       .def("x", py::overload_cast<>(&Vector2D::x, py::const_))
       .def("x", py::overload_cast<const double &>(&Vector2D::x), py::arg("x"))

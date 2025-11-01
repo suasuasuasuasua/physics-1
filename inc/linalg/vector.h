@@ -8,7 +8,7 @@ namespace py = pybind11;
 namespace linalg {
 class Vector2D {
  public:
-  Vector2D(double x, double y) : x_(x), y_(y) {}
+  Vector2D(double x = 0.0, double y = 0.0) : x_(x), y_(y) {}
 
   Vector2D operator+(const Vector2D &other) const;
   Vector2D operator-(const Vector2D &other) const;
