@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "My adventure learning physics 1 from the ground up"
 readme = "README.md"
 authors = [{ name = "Justin Hoang", email = "justinhoang@sua.sh" }]
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = ["numpy>=2.3.4"]
 
 [dependency-groups]
