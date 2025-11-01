@@ -25,10 +25,27 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: false
-    - name: Build and install
+    - name: Install coverage tools
+      run: |
+        pip install pytest-cov gcovr
+    - name: Build with coverage
       run: |
         pip install --group build --group test
-        make build wheel
+        make build-coverage wheel
         pip install dist/*
-    - name: Test
-      run: make test
+    - name: Test with coverage
+      run: |
+        make test-cpp
+        make test-python-coverage
+    - name: Generate C++ coverage report
+      run: |
+        make coverage-report
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+        files: ./coverage.xml,./coverage-cpp.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
