@@ -28,7 +28,7 @@ jobs:
     - name: Build and install
       run: |
         pip install --group build --group test
-        make build wheel
+        make wheel
         pip install dist/*
     - name: Test
       run: make test
