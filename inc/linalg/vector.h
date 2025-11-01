@@ -6,14 +6,14 @@
 namespace py = pybind11;
 
 namespace linalg {
-class Vector2D {
+class Vector2 {
  public:
-  Vector2D(double x = 0.0, double y = 0.0) : x_(x), y_(y) {}
+  Vector2(double x = 0.0, double y = 0.0) : x_(x), y_(y) {}
 
-  Vector2D operator+(const Vector2D &other) const;
-  Vector2D operator-(const Vector2D &other) const;
-  Vector2D &operator+=(const Vector2D &other);
-  Vector2D &operator-=(const Vector2D &other);
+  Vector2 operator+(const Vector2 &other) const;
+  Vector2 operator-(const Vector2 &other) const;
+  Vector2 &operator+=(const Vector2 &other);
+  Vector2 &operator-=(const Vector2 &other);
 
   std::string toString();
 
