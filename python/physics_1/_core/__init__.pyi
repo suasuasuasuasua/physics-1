@@ -10,8 +10,7 @@
     
 """
 from __future__ import annotations
-from physics_1._core import example
-from physics_1._core import linalg
-from . import _core
-__all__: list = ['__doc__', '__version__', 'example', 'linalg']
+from . import example
+from . import linalg
+__all__: list[str] = ['example', 'linalg']
 __version__: str = '0.1.0'
