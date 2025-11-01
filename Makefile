@@ -10,7 +10,7 @@ install:
 	pip install . --no-deps --force-reinstall
 # generate python stubs
 stubs:
-	python -m pybind11-stubgen --output src physics_1
+	pybind11-stubgen --output python physics_1
 # package as wheel
 wheel:
 	python -m build --wheel
@@ -42,3 +42,6 @@ lint:
 clean:
 	cmake --build build --target clean
 	ruff clean
+# clean the cached directory
+clean-full:
+	rm -rf build/

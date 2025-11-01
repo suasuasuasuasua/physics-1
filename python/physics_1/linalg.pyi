@@ -3,19 +3,19 @@ A general linear algebra library
 """
 from __future__ import annotations
 import typing
-__all__: list[str] = ['Vector2D']
-class Vector2D:
-    def __add__(self, arg0: Vector2D) -> Vector2D:
+__all__: list[str] = ['Vector2']
+class Vector2:
+    def __add__(self, arg0: Vector2) -> Vector2:
         ...
-    def __iadd__(self, arg0: Vector2D) -> Vector2D:
+    def __iadd__(self, arg0: Vector2) -> Vector2:
         ...
-    def __init__(self, x: typing.SupportsFloat, y: typing.SupportsFloat) -> None:
+    def __init__(self, x: typing.SupportsFloat = 0.0, y: typing.SupportsFloat = 0.0) -> None:
         ...
-    def __isub__(self, arg0: Vector2D) -> Vector2D:
+    def __isub__(self, arg0: Vector2) -> Vector2:
         ...
     def __repr__(self) -> str:
         ...
-    def __sub__(self, arg0: Vector2D) -> Vector2D:
+    def __sub__(self, arg0: Vector2) -> Vector2:
         ...
     @typing.overload
     def x(self) -> float:
