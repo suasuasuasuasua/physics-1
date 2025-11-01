@@ -543,15 +543,15 @@ Build separately for each platform:
 ```bash
 # On Linux
 python -m build --wheel
-# Creates: physics_1-0.1.0-cp312-cp312-linux_x86_64.whl
+# Creates: physics_1-0.1.0-cp313-cp313-linux_x86_64.whl
 
 # On macOS
 python -m build --wheel
-# Creates: physics_1-0.1.0-cp312-cp312-macosx_11_0_arm64.whl
+# Creates: physics_1-0.1.0-cp313-cp313-macosx_11_0_arm64.whl
 
 # On Windows
 python -m build --wheel
-# Creates: physics_1-0.1.0-cp312-cp312-win_amd64.whl
+# Creates: physics_1-0.1.0-cp313-cp313-win_amd64.whl
 ```
 
 **For distribution:**
