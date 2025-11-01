@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(Python COMPONENTS Interpreter Development)
 set(PYBIND11_FINDPYTHON ON)
 add_subdirectory(extern/pybind11)
 
