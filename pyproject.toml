@@ -21,6 +21,7 @@ test = ["pytest>=8.4.2"]
 build-dir = "build"
 build.verbose = true
 cmake.build-type = "Release"
+wheel.packages = ["python/physics_1"]
 
 # https://docs.astral.sh/ruff/configuration/
 [tool.ruff]
