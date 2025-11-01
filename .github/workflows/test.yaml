@@ -25,9 +25,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         allow-prereleases: false
-    - name: Install coverage tools
-      run: |
-        pip install pytest-cov gcovr
     - name: Build with coverage
       run: |
         pip install --group build --group test

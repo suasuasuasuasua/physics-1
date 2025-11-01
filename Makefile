@@ -16,9 +16,9 @@ wheel:
 	python -m build --wheel
 # run all tests
 test: test-cpp test-python
-# run all tests with coverage
-test-coverage: test-cpp test-python-coverage
-# generate coverage reports
+# run all tests with coverage (requires build-coverage to be run first for C++ coverage)
+test-coverage: test-cpp test-python-coverage coverage-report
+# generate C++ coverage report from collected gcov data
 coverage-report:
 	gcovr --root . --filter src/ --filter inc/ --exclude 'extern/*' --xml -o coverage-cpp.xml --print-summary
 # run c++ core unit tests
