@@ -27,24 +27,61 @@ python3.13
 
 See `devenv.nix` for automatic installation using `nix`.
 
+### Initial Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/suasuasuasuasua/physics-1.git
+cd physics-1
+
+# Initialize submodules (required for pybind11 and googletest)
+git submodule update --init --recursive
+
+# Install the package
+make install
+# or: pip install .
+```
+
+### Common Commands
+
 The `Makefile` has the following utility functions.
 
 ```bash
-# build the python package
-make 
+# build the C++ code (for development)
+make build
 
 # install the python package
 make install
 
 # build the python wheel file
-make dist
+make wheel
 
 # run tests in the tests/ folder
 make test
 
+# generate type stubs for IDE support
+make stubs
+
 # clean the cached directory
 make clean
 ```
+
+### Understanding the Build System
+
+New to the project or confused about how the Python/C++ build system works? 
+
+👉 **Check out the [docs/](docs/) directory for comprehensive documentation:**
+
+- **[Build Architecture](docs/build-architecture.md)** - Detailed explanation of how pyproject.toml, CMakeLists.txt, and pybind11 work together
+- **[Build Flow Diagrams](docs/build-flow-diagrams.md)** - Visual representations of the build process
+- **[FAQ and Troubleshooting](docs/faq-and-troubleshooting.md)** - Common questions and solutions
+
+The documentation explains:
+- How `pip install .` understands to build from CMakeLists.txt
+- Why the `src/physics_1/` folder must be structured the way it is
+- How the C++ code connects to Python through pybind11
+- Why stub files (`.pyi`) are needed and how to generate them
+- Troubleshooting common build and import errors
 
 ## Course Material
 
