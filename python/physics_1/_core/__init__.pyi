@@ -10,8 +10,8 @@
     
 """
 from __future__ import annotations
-from . import example
-from . import linalg
+from . import example as example
+from . import linalg as linalg
 
 __all__: list[str] = ['example', 'linalg', '__version__', '__doc__']
 __version__: str
