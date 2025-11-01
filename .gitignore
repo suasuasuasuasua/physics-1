@@ -58,11 +58,15 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
+coverage-cpp.xml
 *.cover
 *.py.cover
 .hypothesis/
 .pytest_cache/
 cover/
+*.gcda
+*.gcno
+*.gcov
 
 # Translations
 *.mo

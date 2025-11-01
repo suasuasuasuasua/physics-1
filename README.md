@@ -33,6 +33,9 @@ The `Makefile` has the following utility functions.
 # build the python package
 make 
 
+# build with code coverage enabled
+make build-coverage
+
 # install the python package
 make install
 
@@ -42,9 +45,34 @@ make dist
 # run tests in the tests/ folder
 make test
 
+# run tests with coverage collection
+make test-coverage
+
+# generate C++ coverage report (after running tests with coverage)
+make coverage-report
+
 # clean the cached directory
 make clean
 ```
+
+## Code Coverage
+
+This project includes code coverage metrics for both C++ and Python code:
+
+- **Python Coverage**: Uses `pytest-cov` to generate coverage reports
+- **C++ Coverage**: Uses `gcov`/`gcovr` with CMake's `--coverage` flag
+- **GitHub Integration**: Automatically uploads coverage to Codecov on CI runs
+
+To run tests with coverage locally:
+```bash
+make build-coverage  # Build with coverage instrumentation
+make test-coverage   # Run tests with coverage
+make coverage-report # Generate coverage report
+```
+
+Coverage reports are generated in Cobertura XML format:
+- `coverage.xml` - Python coverage
+- `coverage-cpp.xml` - C++ coverage
 
 ## Course Material
 
