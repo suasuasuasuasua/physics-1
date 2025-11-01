@@ -20,7 +20,7 @@ Ensure that these programs are installed.
 
 ```text
 cmake
-gcc (or any C/C++ copmiler like clang)
+gcc (or any C/C++ compiler like clang)
 make
 python3.13
 ```
