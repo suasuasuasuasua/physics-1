@@ -7,3 +7,4 @@ target_sources(
 
 target_compile_definitions(example PRIVATE VERSION_INFO=${PROJECT_VERSION})
 target_include_directories(example PRIVATE ${CMAKE_SOURCE_DIR}/inc)
+target_link_libraries(example PRIVATE pybind11::headers)
