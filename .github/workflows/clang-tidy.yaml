@@ -59,8 +59,8 @@ jobs:
             if (match) {
               const [, path, line, col, level, message, check] = match;
               // Only annotate files in the repository
-              if (path.startsWith('/home/runner/work/')) {
-                const relativePath = path.replace('/home/runner/work/physics-1/physics-1/', '');
+              if (path.startsWith(process.env.GITHUB_WORKSPACE + '/')) {
+                const relativePath = path.replace(process.env.GITHUB_WORKSPACE + '/', '');
                 if (!relativePath.includes('extern/') && !relativePath.includes('build/')) {
                   annotations.push({
                     path: relativePath,

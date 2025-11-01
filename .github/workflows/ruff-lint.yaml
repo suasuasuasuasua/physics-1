@@ -29,4 +29,5 @@ jobs:
 
     - name: Run ruff check with GitHub annotations
       run: |
-        ruff check src tests --output-format=github
+        # Exclude generated stub files from linting
+        ruff check src tests --output-format=github --exclude "*.pyi"
