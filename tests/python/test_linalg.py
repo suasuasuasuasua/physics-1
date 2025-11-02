@@ -83,3 +83,10 @@ def test_Vector2_toString():
     x = linalg.Vector2(1, 2)
 
     assert str(x) == "X: 1 Y: 2"
+
+
+def test_Vector2_Negation():
+    x = linalg.Vector2(3, -4)
+
+    y = -x
+    assert y.x() == -3 and y.y() == 4

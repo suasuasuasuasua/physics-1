@@ -18,6 +18,7 @@ class Vector2 {
   Vector2 &operator-=(const Vector2 &other);
   Vector2 &operator*=(double scalar);
   Vector2 &operator/=(double scalar);
+  Vector2 operator-() const;
   friend bool operator==(const Vector2 &lhs, const Vector2 &rhs);
   friend bool operator!=(const Vector2 &lhs, const Vector2 &rhs);
   friend Vector2 operator*(double f, const Vector2 &v);
