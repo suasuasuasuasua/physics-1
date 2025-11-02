@@ -1,4 +1,4 @@
-add_library(linalg SHARED)
+add_library(linalg)
 target_sources(
   linalg
   PRIVATE vector.cpp
@@ -6,7 +6,5 @@ target_sources(
          ${CMAKE_SOURCE_DIR}/inc/math/linalg/vector.h)
 
 target_compile_definitions(linalg PRIVATE VERSION_INFO=${PROJECT_VERSION})
+set_target_properties(linalg PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(linalg PRIVATE pybind11::embed)
-
-# Install shared library alongside Python module
-install(TARGETS linalg DESTINATION physics_1)
