@@ -1,7 +1,4 @@
-# Find Python before including pybind11 to ensure Python_SOABI is available
-# for use with python_add_library(...WITH_SOABI)
-find_package(Python 3.8 REQUIRED COMPONENTS Interpreter Development.Module
-             OPTIONAL_COMPONENTS Development.Embed)
+find_package(Python REQUIRED COMPONENTS Interpreter Development)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/extern/pybind11
                  ${PROJECT_BINARY_DIR}/extern/pybind11)
