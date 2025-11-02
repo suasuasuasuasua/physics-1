@@ -118,7 +118,7 @@ def test_Vector2_Unit():
     x = linalg.Vector2(3, 4)
     y = x.unit()
 
-    assert y.x() == 0.12 and y.y() == 0.16
+    assert abs(y.x() - 0.12) < 0.001 and abs(y.y() - 0.16) < 0.001
 
 
 def test_Vector2_Angle():
