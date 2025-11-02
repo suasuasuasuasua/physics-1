@@ -18,6 +18,8 @@ class Vector2 {
   Vector2 &operator-=(const Vector2 &other);
   Vector2 &operator*=(double scalar);
   Vector2 &operator/=(double scalar);
+  friend bool operator==(const Vector2 &lhs, const Vector2 &rhs);
+  friend bool operator!=(const Vector2 &lhs, const Vector2 &rhs);
   friend Vector2 operator*(double f, const Vector2 &v);
   friend Vector2 operator/(double f, const Vector2 &v);
 
@@ -39,6 +41,8 @@ class Vector2 {
 
 Vector2 operator*(double f, const Vector2 &v);
 Vector2 operator/(double f, const Vector2 &v);
+bool operator==(const Vector2 &lhs, const Vector2 &rhs);
+bool operator!=(const Vector2 &lhs, const Vector2 &rhs);
 
 void init_linalg(py::module_ &m);
 }  // namespace math::linalg

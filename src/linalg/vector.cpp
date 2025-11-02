@@ -48,6 +48,12 @@ Vector2 &Vector2::operator/=(double scalar) {
   y_ /= scalar;
   return *this;
 }
+bool operator==(const Vector2 &lhs, const Vector2 &rhs) {
+  return (lhs.x_ == rhs.x_) and (lhs.y_ == rhs.y_);
+}
+bool operator!=(const Vector2 &lhs, const Vector2 &rhs) {
+  return (lhs.x_ != rhs.x_) or (lhs.y_ != rhs.y_);
+}
 Vector2 operator*(double scalar, const Vector2 &v) {
   return {scalar * v.x(), scalar * v.y()};
 }
@@ -105,7 +111,9 @@ void init_linalg(py::module_ &m) {
       .def(py::self / float())
       .def(py::self /= float())
       .def(float() / py::self)
-      // .def(-py::self) // TODO: implement the negation operator
+      .def(py::self == py::self)  // TODO: implement equality operator
+      .def(py::self != py::self)  // TODO: implement equality operator
+      // .def(-py::self)             // TODO: implement the negation operator
       // methods
       .def("mag", py::overload_cast<>(&Vector2::mag, py::const_))
       .def("unit", py::overload_cast<>(&Vector2::unit, py::const_))

@@ -19,7 +19,7 @@ test = ["pytest>=8.4.2"]
 # https://scikit-build-core.readthedocs.io/en/stable/reference/configs.html
 [tool.scikit-build]
 build-dir = "build"
-build.verbose = true
+build.verbose = false
 cmake.build-type = "Release"
 wheel.packages = ["python/physics_1"]
 
