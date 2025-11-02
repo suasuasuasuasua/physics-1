@@ -8,8 +8,8 @@ on:
       - '**.hpp'
       - '.clang-tidy'
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
     paths:
       - '**.cpp'
       - '**.h'
