@@ -14,7 +14,7 @@ wheel:
 test: test-cpp test-python
 # run c++ core unit tests
 test-cpp:
-	cd build && ctest --output-on-failure
+	cd build/tests && ctest --output-on-failure
 # run python problem set tests
 test-python:
 	python -m pytest -v

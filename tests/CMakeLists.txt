@@ -1,6 +1,8 @@
 add_subdirectory(${CMAKE_SOURCE_DIR}/extern/googletest
                  ${PROJECT_BINARY_DIR}/extern/googletest)
 
+enable_testing()
+
 add_executable(hello_test cpp/test_example.cpp
                           ${CMAKE_SOURCE_DIR}/src/example/functions.cpp)
 target_include_directories(hello_test PRIVATE ${CMAKE_SOURCE_DIR}/inc/)
