@@ -102,7 +102,7 @@ void init_linalg(py::module_ &m) {
       .def("x", py::overload_cast<>(&Vector2::x, py::const_))
       .def("x", py::overload_cast<const double &>(&Vector2::x), py::arg("x"))
       .def("y", py::overload_cast<>(&Vector2::y, py::const_))
-      .def("y", py::overload_cast<const double &>(&Vector2::x), py::arg("y"))
+      .def("y", py::overload_cast<const double &>(&Vector2::y), py::arg("y"))
       // overloads
       .def(py::self + py::self)
       .def(py::self += py::self)
