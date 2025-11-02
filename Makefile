@@ -10,8 +10,6 @@ stubs:
 # package as wheel
 wheel:
 	python -m build --wheel
-# run all tests
-test: test-cpp test-python
 # run c++ core unit tests
 test-cpp:
 	cd build/tests && ctest --output-on-failure
@@ -33,3 +31,7 @@ clean:
 # clean the cached directory
 clean-full:
 	rm -rf build/
+# run all tests
+test: test-cpp test-python
+# run all ci actions
+ci: build format lint test
