@@ -3,7 +3,7 @@ build:
 	cmake --build build
 # install the python package
 install:
-	pip install . --no-deps --force-reinstall
+	pip install . --no-deps --force-reinstall -v
 # generate python stubs
 stubs:
 	pybind11-stubgen --output python physics_1
