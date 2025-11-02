@@ -48,9 +48,7 @@ Vector2 &Vector2::operator/=(double scalar) {
   y_ /= scalar;
   return *this;
 }
-Vector2 Vector2::operator-() const {
-  return {-x_, -y_};
-}
+Vector2 Vector2::operator-() const { return {-x_, -y_}; }
 bool operator==(const Vector2 &lhs, const Vector2 &rhs) {
   return (lhs.x_ == rhs.x_) and (lhs.y_ == rhs.y_);
 }
@@ -114,8 +112,8 @@ void init_linalg(py::module_ &m) {
       .def(py::self / float())
       .def(py::self /= float())
       .def(float() / py::self)
-      .def(py::self == py::self)  // TODO: implement equality operator
-      .def(py::self != py::self)  // TODO: implement equality operator
+      .def(py::self == py::self)
+      .def(py::self != py::self)
       .def(-py::self)
       // methods
       .def("mag", py::overload_cast<>(&Vector2::mag, py::const_))
