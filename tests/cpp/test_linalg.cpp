@@ -89,6 +89,18 @@ TEST(Vector2Test, DivZero) {
   EXPECT_EQ(v2.x(), 0);
   EXPECT_EQ(v2.y(), 0);
 }
+TEST(Vector2Test, Equal) {
+  math::linalg::Vector2 v1(3.0, 6.0);
+  math::linalg::Vector2 v2(3.0, 6.0);
+
+  EXPECT_TRUE(v1 == v2);
+}
+TEST(Vector2Test, NotEqual) {
+  math::linalg::Vector2 v1(3.0, 6.0);
+  math::linalg::Vector2 v2(5.0, 7.0);
+
+  EXPECT_TRUE(v1 != v2);
+}
 TEST(Vector2Test, Mag) {
   math::linalg::Vector2 v1(12, 34);
   double magnitude = 1300;
