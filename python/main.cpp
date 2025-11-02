@@ -1,5 +1,5 @@
-#include <example/functions.h>
-#include <math/linalg/vector.h>
+#include <example/example_bindings.h>
+#include <math/linalg/linalg_bindings.h>
 #include <pybind11/pybind11.h>
 
 #define STRINGIFY(x) #x
