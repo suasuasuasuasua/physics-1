@@ -12,7 +12,7 @@ if(NOT DEFINED Python_SOABI OR Python_SOABI STREQUAL "")
       FATAL_ERROR
         "Python_EXECUTABLE is not defined. Ensure Python is found before this point.")
   endif()
-  
+
   execute_process(
     COMMAND "${Python_EXECUTABLE}" "-c"
             "import sysconfig; print(sysconfig.get_config_var('SOABI'))"
@@ -20,7 +20,7 @@ if(NOT DEFINED Python_SOABI OR Python_SOABI STREQUAL "")
     RESULT_VARIABLE _PYTHON_SOABI_RESULT
     ERROR_VARIABLE _PYTHON_SOABI_ERROR
     OUTPUT_STRIP_TRAILING_WHITESPACE)
-  
+
   if(NOT _PYTHON_SOABI_RESULT EQUAL 0)
     message(
       FATAL_ERROR
