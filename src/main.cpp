@@ -19,6 +19,7 @@ PYBIND11_MODULE(_core, m, py::mod_gil_not_used(),
            :toctree: _generate
     )pbdoc";
 
+  // comment test to trigger workflow
   example::init_example(m);
   linalg::init_linalg(m);
 
