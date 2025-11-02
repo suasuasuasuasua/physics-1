@@ -137,4 +137,12 @@ TEST(Vector2Test, String) {
 
   EXPECT_EQ(v1.to_string(), repr);
 }
+TEST(Vector2Test, Negation) {
+  math::linalg::Vector2 v1(3.0, -4.0);
+
+  math::linalg::Vector2 v2 = -v1;
+
+  EXPECT_EQ(v2.x(), -3.0);
+  EXPECT_EQ(v2.y(), 4.0);
+}
 }  // namespace
