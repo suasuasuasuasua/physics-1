@@ -15,7 +15,7 @@ if(NOT DEFINED Python_SOABI OR Python_SOABI STREQUAL "")
 
   execute_process(
     COMMAND "${Python_EXECUTABLE}" "-c"
-            "import sysconfig; print(sysconfig.get_config_var('SOABI'))"
+            "import sysconfig; print(sysconfig.get_config_var('SOABI') or '')"
     OUTPUT_VARIABLE Python_SOABI
     RESULT_VARIABLE _PYTHON_SOABI_RESULT
     ERROR_VARIABLE _PYTHON_SOABI_ERROR
@@ -25,6 +25,14 @@ if(NOT DEFINED Python_SOABI OR Python_SOABI STREQUAL "")
     message(
       FATAL_ERROR
         "Failed to determine Python_SOABI. Python command failed with:\n${_PYTHON_SOABI_ERROR}")
+  endif()
+
+  # Check if SOABI was actually found (some Python installations may not have it)
+  if(Python_SOABI STREQUAL "" OR Python_SOABI STREQUAL "None")
+    message(
+      WARNING
+        "Python_SOABI could not be determined. WITH_SOABI will not add SOABI tag to module name.")
+    unset(Python_SOABI)
   endif()
 endif()
 
