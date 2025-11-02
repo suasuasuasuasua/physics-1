@@ -1,4 +1,4 @@
-set(PYBIND11_FINDPYTHON ON)
+find_package(Python REQUIRED COMPONENTS Interpreter Development)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/extern/pybind11
                  ${PROJECT_BINARY_DIR}/extern/pybind11)
