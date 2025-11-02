@@ -9,7 +9,7 @@ target_include_directories(hello_test PRIVATE ${CMAKE_SOURCE_DIR}/inc/)
 target_link_libraries(hello_test PRIVATE pybind11::embed GTest::gtest_main)
 
 add_executable(linalg_test cpp/test_linalg.cpp
-                           ${CMAKE_SOURCE_DIR}/src/linalg/vector.cpp)
+                           ${CMAKE_SOURCE_DIR}/src/math/linalg/vector.cpp)
 target_include_directories(linalg_test PRIVATE ${CMAKE_SOURCE_DIR}/inc/)
 target_link_libraries(linalg_test PRIVATE pybind11::embed GTest::gtest_main)
 

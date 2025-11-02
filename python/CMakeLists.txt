@@ -5,7 +5,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/extern/pybind11
 
 python_add_library(
   _core MODULE main.cpp ${CMAKE_SOURCE_DIR}/src/example/functions.cpp
-  ${CMAKE_SOURCE_DIR}/src/linalg/vector.cpp WITH_SOABI)
+  ${CMAKE_SOURCE_DIR}/src/math/linalg/vector.cpp WITH_SOABI)
 
 # This is passing in the version as a define just as an example
 target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
