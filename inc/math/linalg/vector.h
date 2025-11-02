@@ -5,7 +5,7 @@
 
 namespace py = pybind11;
 
-namespace linalg {
+namespace math::linalg {
 class Vector2 {
  public:
   Vector2(double x = 0.0, double y = 0.0) : x_(x), y_(y) {}
@@ -41,5 +41,6 @@ Vector2 operator*(double f, const Vector2 &v);
 Vector2 operator/(double f, const Vector2 &v);
 
 void init_linalg(py::module_ &m);
-}  // namespace linalg
+}  // namespace math::linalg
+
 #endif  // INCLUDE_LINALG_VECTOR_H_

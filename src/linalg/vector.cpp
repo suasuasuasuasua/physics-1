@@ -1,4 +1,4 @@
-#include <linalg/vector.h>
+#include <math/linalg/vector.h>
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
@@ -9,7 +9,7 @@
 
 namespace py = pybind11;
 
-namespace linalg {
+namespace math::linalg {
 Vector2 Vector2::operator+(const Vector2 &other) const {
   return {x_ + other.x_, y_ + other.y_};
 }
@@ -114,4 +114,4 @@ void init_linalg(py::module_ &m) {
                   py::overload_cast<double, double>(&Vector2::from_mag_ang))
       .def("__repr__", &Vector2::to_string);
 }
-}  // namespace linalg
+}  // namespace math::linalg
