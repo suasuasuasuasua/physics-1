@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import math
+
 from physics_1 import linalg
 
 
@@ -90,3 +92,52 @@ def test_Vector2_Negation():
 
     y = -x
     assert y.x() == -3 and y.y() == 4
+
+
+def test_Vector2_Equal():
+    x = linalg.Vector2(3, 6)
+    y = linalg.Vector2(3, 6)
+
+    assert x == y
+
+
+def test_Vector2_NotEqual():
+    x = linalg.Vector2(3, 6)
+    y = linalg.Vector2(5, 7)
+
+    assert x != y
+
+
+def test_Vector2_Mag():
+    x = linalg.Vector2(3, 4)
+
+    assert x.mag() == 25
+
+
+def test_Vector2_Unit():
+    x = linalg.Vector2(3, 4)
+    y = x.unit()
+
+    assert y.x() == 0.12 and y.y() == 0.16
+
+
+def test_Vector2_Angle():
+    x = linalg.Vector2(1, 1)
+
+    assert abs(x.angle() - math.pi / 4) < 0.001
+
+
+def test_Vector2_FromMagAng():
+    magnitude = 2
+    angle = math.pi / 6
+
+    v = linalg.Vector2.from_mag_ang(magnitude, angle)
+    assert abs(v.x() - math.sqrt(3)) < 0.001 and abs(v.y() - 1.0) < 0.001
+
+
+def test_Vector2_ScalarMul():
+    x = linalg.Vector2(2, 3)
+    scalar = 4.0
+
+    z = scalar * x
+    assert z.x() == 8 and z.y() == 12
