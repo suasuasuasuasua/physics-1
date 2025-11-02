@@ -6,7 +6,8 @@
 
 namespace math::linalg {
 void init_linalg(py::module_ &m) {
-  auto linalg = m.def_submodule("linalg", "A general linear algebra library");
+  auto math_module = m.def_submodule("math", "Math module");
+  auto linalg = math_module.def_submodule("linalg", "A general linear algebra library");
 
   py::class_<Vector2>(linalg, "Vector2")
       .def(py::init<double, double>(), py::arg("x") = 0.0, py::arg("y") = 0.0)

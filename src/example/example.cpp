@@ -3,8 +3,10 @@
 
 namespace example::functions {
 void init_functions(py::module_ &m) {
-  m.def_submodule("example", "Some example functions demoing pybind11")
-      .def("add", &example::functions::add, py::arg("i"), py::arg("j"), R"pbdoc(
+  auto example_module = m.def_submodule("example", "Example module");
+  auto functions_module = example_module.def_submodule("functions", "Some example functions demoing pybind11");
+  
+  functions_module.def("add", &example::functions::add, py::arg("i"), py::arg("j"), R"pbdoc(
         Add two numbers
       )pbdoc")
       .def("sub", &example::functions::sub, py::arg("i"), py::arg("j"), R"pbdoc(
