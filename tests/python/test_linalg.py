@@ -8,13 +8,13 @@ from physics_1 import linalg
 def test_Vector2_DefaultConstructor():
     x = linalg.Vector2()
 
-    assert x.x() == 0 and x.y() == 0
+    assert x.x == 0 and x.y == 0
 
 
 def test_Vector2_Constructor():
     x = linalg.Vector2(1, 10)
 
-    assert x.x() == 1 and x.y() == 10
+    assert x.x == 1 and x.y == 10
 
 
 def test_Vector2_Add():
@@ -22,7 +22,7 @@ def test_Vector2_Add():
     y = linalg.Vector2(3, 5)
 
     z = x + y
-    assert z.x() == 4 and z.y() == 7
+    assert z.x == 4 and z.y == 7
 
 
 def test_Vector2_AddSelf():
@@ -30,7 +30,7 @@ def test_Vector2_AddSelf():
     y = linalg.Vector2(3, 5)
 
     x += y
-    assert x.x() == 4 and x.y() == 7
+    assert x.x == 4 and x.y == 7
 
 
 def test_Vector2_Sub():
@@ -38,7 +38,7 @@ def test_Vector2_Sub():
     y = linalg.Vector2(3, 5)
 
     z = x - y
-    assert z.x() == -2 and z.y() == -3
+    assert z.x == -2 and z.y == -3
 
 
 def test_Vector2_SubSelf():
@@ -46,7 +46,7 @@ def test_Vector2_SubSelf():
     y = linalg.Vector2(3, 5)
 
     x -= y
-    assert x.x() == -2 and x.y() == -3
+    assert x.x == -2 and x.y == -3
 
 
 def test_Vector2_Mul():
@@ -54,7 +54,7 @@ def test_Vector2_Mul():
     scalar = 4.0
 
     z = x * scalar
-    assert z.x() == 4 and z.y() == 8
+    assert z.x == 4 and z.y == 8
 
 
 def test_Vector2_MulSelf():
@@ -62,7 +62,7 @@ def test_Vector2_MulSelf():
     scalar = 4.0
 
     x *= scalar
-    assert x.x() == 4 and x.y() == 8
+    assert x.x == 4 and x.y == 8
 
 
 def test_Vector2_Div():
@@ -70,7 +70,7 @@ def test_Vector2_Div():
     scalar = 4.0
 
     z = x / scalar
-    assert z.x() == 2 and z.y() == 3
+    assert z.x == 2 and z.y == 3
 
 
 def test_Vector2_DivSelf():
@@ -78,7 +78,7 @@ def test_Vector2_DivSelf():
     scalar = 4.0
 
     x /= scalar
-    assert x.x() == 2 and x.y() == 3
+    assert x.x == 2 and x.y == 3
 
 
 def test_Vector2_toString():
@@ -91,7 +91,7 @@ def test_Vector2_Negation():
     x = linalg.Vector2(3, -4)
 
     y = -x
-    assert y.x() == -3 and y.y() == 4
+    assert y.x == -3 and y.y == 4
 
 
 def test_Vector2_Equal():
@@ -118,7 +118,7 @@ def test_Vector2_Unit():
     x = linalg.Vector2(3, 4)
     y = x.unit()
 
-    assert abs(y.x() - 0.12) < 0.001 and abs(y.y() - 0.16) < 0.001
+    assert abs(y.x - 0.12) < 0.001 and abs(y.y - 0.16) < 0.001
 
 
 def test_Vector2_Angle():
@@ -132,7 +132,7 @@ def test_Vector2_FromMagAng():
     angle = math.pi / 6
 
     v = linalg.Vector2.from_mag_ang(magnitude, angle)
-    assert abs(v.x() - math.sqrt(3)) < 0.001 and abs(v.y() - 1.0) < 0.001
+    assert abs(v.x - math.sqrt(3)) < 0.001 and abs(v.y - 1.0) < 0.001
 
 
 def test_Vector2_ScalarMul():
@@ -140,4 +140,4 @@ def test_Vector2_ScalarMul():
     scalar = 4.0
 
     z = scalar * x
-    assert z.x() == 8 and z.y() == 12
+    assert z.x == 8 and z.y == 12

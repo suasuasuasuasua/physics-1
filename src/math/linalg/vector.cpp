@@ -97,10 +97,10 @@ void init_linalg(py::module_ &m) {
   py::class_<Vector2>(linalg, "Vector2")
       .def(py::init<double, double>(), py::arg("x") = 0.0, py::arg("y") = 0.0)
       // members
-      .def("x", py::overload_cast<>(&Vector2::x, py::const_))
-      .def("x", py::overload_cast<const double &>(&Vector2::x), py::arg("x"))
-      .def("y", py::overload_cast<>(&Vector2::y, py::const_))
-      .def("y", py::overload_cast<const double &>(&Vector2::y), py::arg("y"))
+      .def_property("x", py::overload_cast<>(&Vector2::x, py::const_),
+                    py::overload_cast<const double &>(&Vector2::x))
+      .def_property("y", py::overload_cast<>(&Vector2::y, py::const_),
+                    py::overload_cast<const double &>(&Vector2::y))
       // overloads
       .def(py::self + py::self)
       .def(py::self += py::self)
