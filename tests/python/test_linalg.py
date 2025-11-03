@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 
-from physics_1 import linalg
+from physics_1.math import linalg
 
 
 def test_Vector2_DefaultConstructor():
