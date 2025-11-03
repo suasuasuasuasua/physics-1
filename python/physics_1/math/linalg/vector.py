@@ -3,12 +3,22 @@ from __future__ import annotations
 
 def _get_linalg_core():
     """Lazy import of _core.linalg to avoid circular imports."""
-    import sys
-    if '_core' in sys.modules:
+    try:
+        # Try importing from _core first (when _core is standalone)
         from _core import linalg
         return linalg
-    # Import physics_1._core if _core is not available
-    from physics_1._core import linalg
+    except ImportError:
+        pass
+    
+    # Try importing from physics_1._core
+    try:
+        from physics_1._core import linalg
+        return linalg
+    except ImportError:
+        pass
+    
+    # If all else fails, try relative import
+    from ..._core import linalg
     return linalg
 
 _linalg_core = _get_linalg_core()

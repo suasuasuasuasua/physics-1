@@ -3,12 +3,22 @@ from __future__ import annotations
 
 def _get_example_core():
     """Lazy import of _core.example to avoid circular imports."""
-    import sys
-    if '_core' in sys.modules:
+    try:
+        # Try importing from _core first (when _core is standalone)
         from _core import example
         return example
-    # Import physics_1._core if _core is not available
-    from physics_1._core import example
+    except ImportError:
+        pass
+    
+    # Try importing from physics_1._core
+    try:
+        from physics_1._core import example
+        return example
+    except ImportError:
+        pass
+    
+    # If all else fails, try relative import
+    from .._core import example
     return example
 
 _example_core = _get_example_core()
