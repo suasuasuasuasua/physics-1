@@ -92,9 +92,8 @@ Vector2 Vector2::from_mag_ang(double magnitude, double angle) {
 }
 
 void init_linalg(py::module_ &m) {
-  auto linalg = m.def_submodule("linalg", "A general linear algebra library");
-
-  py::class_<Vector2>(linalg, "Vector2")
+  // Bind Vector2 directly to the passed module (which is math.linalg.vector)
+  py::class_<Vector2>(m, "Vector2")
       .def(py::init<double, double>(), py::arg("x") = 0.0, py::arg("y") = 0.0)
       // members
       .def("x", py::overload_cast<>(&Vector2::x, py::const_))

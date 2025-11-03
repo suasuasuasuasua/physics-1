@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-from . import example, math
+# Import the C++-defined package hierarchy
+from ._core import example, math
 
-# Import version and documentation from _core
 try:
-    from ._core import __doc__ as _core_doc
-    from ._core import __version__ as _core_version
-    __doc__ = _core_doc
-    __version__ = _core_version
-except ImportError:
+    from ._core import __doc__ as _doc
+    from ._core import __version__ as _version
+    __doc__ = _doc
+    __version__ = _version
+except (ImportError, AttributeError):
     __doc__ = "Physics 1 Module"
     __version__ = "dev"
 

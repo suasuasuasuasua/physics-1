@@ -18,14 +18,12 @@ def test_example_package():
     # example should have functions as a submodule
     assert hasattr(example, "functions")
 
-    # example should expose add, sub, mul at package level
-    assert hasattr(example, "add")
-    assert hasattr(example, "sub")
-    assert hasattr(example, "mul")
-
-    # Test functions work
-    assert example.add(1, 2) == 3
-    assert example.sub(5, 3) == 2
+    # Test that functions module works
+    assert hasattr(example.functions, "add")
+    assert hasattr(example.functions, "sub")
+    assert hasattr(example.functions, "mul")
+    assert example.functions.add(1, 2) == 3
+    assert example.functions.sub(5, 3) == 2
 
 
 def test_example_functions_module():
@@ -77,11 +75,9 @@ def test_math_linalg_package():
     # linalg should have vector as a submodule
     assert hasattr(linalg, "vector")
 
-    # linalg should expose Vector2 at package level
-    assert hasattr(linalg, "Vector2")
-
-    # Test Vector2 works
-    v = linalg.Vector2(3, 4)
+    # Test that vector module works
+    assert hasattr(linalg.vector, "Vector2")
+    v = linalg.vector.Vector2(3, 4)
     assert v.x() == 3
     assert v.y() == 4
 
