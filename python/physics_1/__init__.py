@@ -12,11 +12,13 @@ from _core import __doc__, __version__, example, math
 
 # Register C++ submodules in sys.modules so Python's import system can find them
 # This enables: from physics_1.example import functions, from physics_1.math.linalg import vector, etc.
-sys.modules['physics_1.example'] = example
-sys.modules['physics_1.example.functions'] = example.functions
-sys.modules['physics_1.math'] = math
-sys.modules['physics_1.math.constants'] = math.constants
-sys.modules['physics_1.math.linalg'] = math.linalg
-sys.modules['physics_1.math.linalg.vector'] = math.linalg.vector
+sys.modules |= {
+    'physics_1.example': example,
+    'physics_1.example.functions': example.functions,
+    'physics_1.math': math,
+    'physics_1.math.constants': math.constants,
+    'physics_1.math.linalg': math.linalg,
+    'physics_1.math.linalg.vector': math.linalg.vector,
+}
 
 __all__ = ["__doc__", "__version__", "example", "math"]
