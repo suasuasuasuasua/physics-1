@@ -1,7 +1,4 @@
-find_package(
-  Python
-  COMPONENTS Interpreter Development.Module
-  REQUIRED)
+find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/extern/pybind11
                  ${PROJECT_BINARY_DIR}/extern/pybind11)
