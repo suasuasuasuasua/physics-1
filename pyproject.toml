@@ -4,7 +4,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "physics_1"
-version = "0.1.0"
+version = "0.2.0"
 description = "My adventure learning physics 1 from the ground up"
 readme = "README.md"
 authors = [{ name = "Justin Hoang", email = "justinhoang@sua.sh" }]
@@ -31,3 +31,11 @@ target-version = "py311"
 minversion = "6.0"
 addopts = "-ra -q"
 testpaths = ["tests"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = true

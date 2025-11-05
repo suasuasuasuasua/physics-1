@@ -1,0 +1,58 @@
+## 0.2.0 (2025-11-04)
+
+### Feat
+
+- **linalg/vector**: add magnitude and angle constructor
+- **linalg/vector**: add angle methods for Vector2
+- **linalg/vector**: add division, mag, and unit methods
+- initial commit
+
+### Fix
+
+- **python**: update stubs for functions
+- **lint**: exlcude extern and pyi files
+- **math/linalg**: fix setters for Vector2
+- **pyproject**: reduce complexity of packages wheel
+- add .envrc for devenv
+- **python**: generate more stubs for Vector2
+- **linalg/vector**: remove double space in toString
+- **README**: correct spelling for compiler
+- **Makefile**: correct the stubgen command
+- **build**: relax requirements to python3.11
+- **ci**: use better quotes on python versions matrix
+- **build**: remove sources from python_add_library for simplicity
+- **build**: add embed module for pybind11 to also get dev headers
+- **build**: add pybind11 headers back for compile-time
+- **CMakeLists.txt**: remove find_package for Python in CMakeLists (#4)
+- **ci**: remove dev group from test workflow
+- **ci**: add the testing group for last stage
+- **ci**: use bar to split command line
+- **ci**: correct pip group call
+- **ci**: build the tests first
+- **ci**: submodules not submodule
+- **ci**: recursively checkout submodules
+- **example**: wrap in a guard header
+- **Makefile**: lint the header files
+- **build**: force a new reinstall each time
+- **CMakeLists.txt**: remove pthread linking
+- **build**: manually define project name and version in CMakeLists.txt
+- **pyproject**: update typo in physics
+- **Makefile**: use ruff clean
+
+### Refactor
+
+- **math/linalg**: use def_property idiom for x and y
+- **build**: use library linking instead of double compilation
+- **math/linalg**: nest linalg library under math
+- further move CMake files into testing and python folders
+- nest the namespace under math and add constants header
+- **linalg/vector**: snake case the string method
+- **python**: use stubgen structure
+- **linalg**: use shorthand for vector2s
+- move python code to separate folder
+- **build**: further modularize the CMakeLists.txt files
+- **tests**: modularize the CMakeLists.txt file for testing
+- **tests**: move util file to python tests folder
+- **src**: move functions example to folder
+- move the testing functions to inc and src structure
+- **build**: rename dist stage to wheel
