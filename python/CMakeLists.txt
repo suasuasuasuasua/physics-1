@@ -1,3 +1,16 @@
+find_package(
+  Python
+  COMPONENTS Interpreter Development.Module
+  REQUIRED Development.Embed)
+
+# Make Python targets available globally for src/ and tests/
+if(TARGET Python::Python)
+  set_property(TARGET Python::Python PROPERTY IMPORTED_GLOBAL TRUE)
+endif()
+if(TARGET Python::Module)
+  set_property(TARGET Python::Module PROPERTY IMPORTED_GLOBAL TRUE)
+endif()
+
 add_subdirectory(${CMAKE_SOURCE_DIR}/extern/pybind11
                  ${PROJECT_BINARY_DIR}/extern/pybind11)
 
