@@ -58,9 +58,9 @@ Vector2 operator/(double scalar, const Vector2 &v) {
 }
 
 double Vector2::x() const { return x_; }
-void Vector2::x(const double &x) { x_ = std::move(x_); }
+void Vector2::x(const double &x) { x_ = std::move(x); }
 double Vector2::y() const { return y_; }
-void Vector2::y(const double &y) { y_ = std::move(y_); }
+void Vector2::y(const double &y) { y_ = std::move(y); }
 
 std::string Vector2::to_string() {
   std::stringstream ss;
