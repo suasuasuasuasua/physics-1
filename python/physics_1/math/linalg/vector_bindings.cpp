@@ -1,4 +1,5 @@
 #include <math/linalg/vector.h>
+#include <math/linalg/vector_bindings.h>
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
@@ -6,10 +7,8 @@
 namespace py = pybind11;
 
 namespace math::linalg {
-void init_linalg(py::module_ &m) {
-  auto linalg = m.def_submodule("linalg", "A general linear algebra library");
-
-  py::class_<Vector2>(linalg, "Vector2")
+void init_vector2(py::module_ &m) {
+  py::class_<Vector2>(m, "Vector2")
       .def(py::init<double, double>(), py::arg("x") = 0.0, py::arg("y") = 0.0)
       // members
       .def_property("x", py::overload_cast<>(&Vector2::x, py::const_),

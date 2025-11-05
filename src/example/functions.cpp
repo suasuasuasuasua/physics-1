@@ -27,6 +27,7 @@ void init_functions(py::module_ &m) {
         Subtract two numbers
       )pbdoc")
       .def("mul", &example::functions::sub, py::arg("i"), py::arg("j"), R"pbdoc(
+        Multiply two numbers
       )pbdoc");
 }
 }  // namespace example::functions

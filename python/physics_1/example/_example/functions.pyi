@@ -9,7 +9,9 @@ def add(i: typing.SupportsInt, j: typing.SupportsInt) -> int:
             Add two numbers
     """
 def mul(i: typing.SupportsInt, j: typing.SupportsInt) -> int:
-    ...
+    """
+            Multiply two numbers
+    """
 def sub(i: typing.SupportsInt, j: typing.SupportsInt) -> int:
     """
             Subtract two numbers
