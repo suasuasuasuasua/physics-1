@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from .._math import linalg as _linalg
 
-Vector2 = _linalg.Vector2
-
-__all__ = ["__doc__", "__version__", "Vector2"]
+# Dynamically re-export all public symbols from _linalg
+__all__ = ["__doc__", "__version__"]
+for _name in dir(_linalg):
+    if not _name.startswith("_"):
+        globals()[_name] = getattr(_linalg, _name)
+        __all__.append(_name)
+del _name  # Clean up the loop variable
