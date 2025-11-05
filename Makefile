@@ -3,18 +3,16 @@ build:
 	cmake --build build
 # install the python package
 install:
-	pip install . --no-deps --force-reinstall
+	pip install . --no-deps --force-reinstall -v
 # generate python stubs
 stubs:
 	pybind11-stubgen --output python physics_1
 # package as wheel
 wheel:
 	python -m build --wheel
-# run all tests
-test: test-cpp test-python
 # run c++ core unit tests
 test-cpp:
-	cd build && ctest --output-on-failure
+	cd build/tests && ctest --output-on-failure
 # run python problem set tests
 test-python:
 	python -m pytest -v
@@ -33,3 +31,7 @@ clean:
 # clean the cached directory
 clean-full:
 	rm -rf build/
+# run all tests
+test: test-cpp test-python
+# run all ci actions
+ci: build format lint test

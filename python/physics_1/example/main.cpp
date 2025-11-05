@@ -1,5 +1,4 @@
-#include <example/functions.h>
-#include <linalg/vector.h>
+#include <example/functions_bindings.h>
 #include <pybind11/pybind11.h>
 
 #define STRINGIFY(x) #x
@@ -7,10 +6,10 @@
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(_core, m, py::mod_gil_not_used(),
+PYBIND11_MODULE(_example, m, py::mod_gil_not_used(),
                 py::multiple_interpreters::per_interpreter_gil()) {
   m.doc() = R"pbdoc(
-        Physics 1 Module
+        Physics 1 Example Module
         -----------------------
 
         .. currentmodule:: physics_1
@@ -19,9 +18,7 @@ PYBIND11_MODULE(_core, m, py::mod_gil_not_used(),
            :toctree: _generate
     )pbdoc";
 
-  // comment test to trigger workflow
-  example::init_example(m);
-  linalg::init_linalg(m);
+  example::functions::init_functions(m);
 
 #ifdef VERSION_INFO
   m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);

@@ -19,9 +19,13 @@ test = ["pytest>=8.4.2"]
 # https://scikit-build-core.readthedocs.io/en/stable/reference/configs.html
 [tool.scikit-build]
 build-dir = "build"
-build.verbose = true
+build.verbose = false
 cmake.build-type = "Release"
-wheel.packages = ["python/physics_1"]
+[tool.scikit-build.wheel.packages]
+"physics_1" = "python/physics_1"
+"physics_1/example" = "python/physics_1/example"
+"physics_1/math" = "python/physics_1/math"
+"physics_1/math/linalg" = "python/physics_1/math/linalg"
 
 # https://docs.astral.sh/ruff/configuration/
 [tool.ruff]

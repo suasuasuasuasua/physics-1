@@ -1,6 +1,6 @@
 """
 
-        Top Level Physics 1 Module
+        Physics 1 Example Module
         -----------------------
 
         .. currentmodule:: physics_1
@@ -10,8 +10,7 @@
     
 """
 from __future__ import annotations
-from . import _core
-from . import example
-from . import math
-__all__: list = ['__doc__', '__version__', 'example', 'math']
+from physics_1.example._example import functions
+from . import _example
+__all__: list = ['__doc__', '__version__', 'functions']
 __version__: str = '0.1.0'
