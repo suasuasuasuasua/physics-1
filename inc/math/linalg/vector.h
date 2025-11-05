@@ -44,8 +44,6 @@ Vector2 operator*(double f, const Vector2 &v);
 Vector2 operator/(double f, const Vector2 &v);
 bool operator==(const Vector2 &lhs, const Vector2 &rhs);
 bool operator!=(const Vector2 &lhs, const Vector2 &rhs);
-
-void init_linalg(py::module_ &m);
 }  // namespace math::linalg
 
 #endif  // INCLUDE_LINALG_VECTOR_H_

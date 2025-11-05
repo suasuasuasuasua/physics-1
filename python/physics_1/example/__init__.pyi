@@ -1,6 +1,6 @@
 """
 
-        Physics 1 Module
+        Physics 1 Example Module
         -----------------------
 
         .. currentmodule:: physics_1
@@ -10,7 +10,7 @@
     
 """
 from __future__ import annotations
-from . import example
-from . import linalg
-__all__: list[str] = ['example', 'linalg']
+from physics_1.example._example import functions
+from . import _example
+__all__: list = ['__doc__', '__version__', 'functions']
 __version__: str = '0.1.0'
