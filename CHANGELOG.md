@@ -1,3 +1,9 @@
+## 0.2.4 (2025-11-04)
+
+### Fix
+
+- **python**: experiment with non-required and required
+
 ## 0.2.3 (2025-11-04)
 
 ### Fix
