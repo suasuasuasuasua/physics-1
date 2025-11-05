@@ -7,4 +7,4 @@ target_sources(
 
 target_compile_definitions(linalg PRIVATE VERSION_INFO=${PROJECT_VERSION})
 set_target_properties(linalg PROPERTIES POSITION_INDEPENDENT_CODE ON)
-target_link_libraries(linalg PRIVATE pybind11::embed)
+target_link_libraries(linalg PRIVATE pybind11::pybind11 Python::Python)

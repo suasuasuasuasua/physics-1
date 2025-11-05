@@ -9,6 +9,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# find Python for pybind11
+find_package(Python COMPONENTS Interpreter Development.Module Development.Embed REQUIRED)
+
 # add the modules
 add_subdirectory(python)
 add_subdirectory(src)
