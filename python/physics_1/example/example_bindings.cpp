@@ -1,5 +1,5 @@
 #include <example/functions.h>
-#include <example/functions_bindings.h>
+#include "functions_bindings.h"
 
 namespace example::functions {
 void init_functions(py::module_ &m) {
