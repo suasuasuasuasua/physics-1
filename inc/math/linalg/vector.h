@@ -1,9 +1,7 @@
 #ifndef INCLUDE_LINALG_VECTOR_H_
 #define INCLUDE_LINALG_VECTOR_H_
 
-#include <pybind11/pybind11.h>
-
-namespace py = pybind11;
+#include <string>
 
 namespace math::linalg {
 class Vector2 {
