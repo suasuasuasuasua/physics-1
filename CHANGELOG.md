@@ -1,3 +1,9 @@
+## 0.2.1 (2025-11-04)
+
+### Fix
+
+- **ci**: recursively clone submodules
+
 ## 0.2.0 (2025-11-04)
 
 ### Feat
