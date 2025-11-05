@@ -12,6 +12,9 @@ void init_functions(py::module_ &m) {
       )pbdoc")
       .def("mul", &example::functions::mul, py::arg("i"), py::arg("j"), R"pbdoc(
         Multiply two numbers
+      )pbdoc")
+      .def("div", &example::functions::div, py::arg("i"), py::arg("j"), R"pbdoc(
+        Divide two numbers
       )pbdoc");
 }
 }  // namespace example::functions
