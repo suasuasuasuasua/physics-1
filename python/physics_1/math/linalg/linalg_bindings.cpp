@@ -1,5 +1,5 @@
-#include "linalg_bindings.h"
-#include "vector_bindings.h"
+#include <math/linalg/linalg_bindings.h>
+#include <math/linalg/vector_bindings.h>
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>

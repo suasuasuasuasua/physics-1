@@ -1,4 +1,4 @@
-#include "math_bindings.h"
+#include <math/math_bindings.h>
 #include <pybind11/pybind11.h>
 
 #define STRINGIFY(x) #x
