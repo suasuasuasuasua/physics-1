@@ -1,3 +1,9 @@
+## 0.2.2 (2025-11-04)
+
+### Fix
+
+- **python**: experiment with disable python requirement
+
 ## 0.2.1 (2025-11-04)
 
 ### Fix
