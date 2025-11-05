@@ -31,6 +31,7 @@ jobs:
           CIBW_BUILD: "cp{311,312,313,314}-*"
           CIBW_TEST_COMMAND: pytest -v
           CIBW_TEST_GROUPS: test
+          CIBW_TEST_SOURCES: tests/python
 
       - uses: actions/upload-artifact@v4
         with:
