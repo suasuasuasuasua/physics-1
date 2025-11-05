@@ -2,7 +2,7 @@
 
 {
   # https://devenv.sh/packages/
-  packages = [ pkgs.git pkgs.ninja ];
+  packages = [ pkgs.git pkgs.ninja pkgs.commitizen ];
 
   # https://devenv.sh/languages/
   languages = {
