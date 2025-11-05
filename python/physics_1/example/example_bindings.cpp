@@ -10,7 +10,7 @@ void init_functions(py::module_ &m) {
       .def("sub", &example::functions::sub, py::arg("i"), py::arg("j"), R"pbdoc(
         Subtract two numbers
       )pbdoc")
-      .def("mul", &example::functions::sub, py::arg("i"), py::arg("j"), R"pbdoc(
+      .def("mul", &example::functions::mul, py::arg("i"), py::arg("j"), R"pbdoc(
         Multiply two numbers
       )pbdoc");
 }
