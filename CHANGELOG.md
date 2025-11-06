@@ -1,3 +1,9 @@
+## 0.2.5 (2025-11-05)
+
+### Fix
+
+- **python**: reduce dependency on heavier python modules
+
 ## 0.2.4 (2025-11-04)
 
 ### Fix
