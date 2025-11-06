@@ -22,7 +22,7 @@ format:
 	ruff format src
 # run linting tasks
 lint:
-	run-clang-tidy src -p build -exclude-header ".*extern.*"
+	run-clang-tidy src -p build -header-filter="inc/"
 	ruff check python --exclude "*.pyi"
 # clean the cached directory
 clean:
