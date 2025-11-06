@@ -1,3 +1,9 @@
+## 0.2.8 (2025-11-05)
+
+### Fix
+
+- **ci**: skip musllinux for macos builds
+
 ## 0.2.7 (2025-11-05)
 
 ### Fix
