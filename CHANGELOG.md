@@ -1,3 +1,9 @@
+## 0.2.7 (2025-11-05)
+
+### Fix
+
+- **ci**: use correct tag for cibuildwheel
+
 ## 0.2.6 (2025-11-05)
 
 ### Fix
