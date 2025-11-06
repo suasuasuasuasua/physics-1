@@ -64,7 +64,7 @@ void Vector2::y(const double &y) { y_ = std::move(y); }
 
 std::string Vector2::to_string() {
   std::stringstream ss;
-  ss << "X: " << x_ << " Y: " << y_;
+  ss << "{ " << x_ << ", " << y_ << " }";
   return ss.str();
 }
 
