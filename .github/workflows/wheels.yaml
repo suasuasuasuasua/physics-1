@@ -28,7 +28,7 @@ jobs:
         run: python -m cibuildwheel --output-dir wheelhouse
         # to supply options, put them in 'env', like:
         env:
-          CIBW_BUILD: "cp{311,312,313,314}-*"
+          CIBW_BUILD: "cp{311,312,313,314}-*-manylinux*"
           CIBW_TEST_COMMAND: pytest -v
           CIBW_TEST_GROUPS: test
           CIBW_TEST_SOURCES: tests/python
