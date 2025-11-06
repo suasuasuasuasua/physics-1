@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import math
 
 from physics_1.math.linalg import Vector2
@@ -141,3 +142,33 @@ def test_Vector2_ScalarMul():
 
     z = scalar * x
     assert z.x == 8 and z.y == 12
+
+
+def test_Vector2_Copy():
+    """Test that copy.copy creates an independent copy."""
+    x = Vector2(1, 2)
+    y = copy.copy(x)
+
+    # They should have the same values
+    assert y.x == 1 and y.y == 2
+    # But be different objects
+    assert x is not y
+
+    # Modifying x should not affect y
+    x.x = 10
+    assert x.x == 10 and y.x == 1
+
+
+def test_Vector2_DeepCopy():
+    """Test that copy.deepcopy creates an independent copy."""
+    x = Vector2(3, 4)
+    y = copy.deepcopy(x)
+
+    # They should have the same values
+    assert y.x == 3 and y.y == 4
+    # But be different objects
+    assert x is not y
+
+    # Modifying x should not affect y
+    x.y = 40
+    assert x.y == 40 and y.y == 4
