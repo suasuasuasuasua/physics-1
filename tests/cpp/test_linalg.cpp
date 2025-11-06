@@ -133,7 +133,7 @@ TEST(Vector2Test, FromMagAng) {
 }
 TEST(Vector2Test, String) {
   math::linalg::Vector2 v1(1.1, 2.2);
-  std::string repr("X: 1.1 Y: 2.2");
+  std::string repr("{ 1.1, 2.2 }");
 
   EXPECT_EQ(v1.to_string(), repr);
 }

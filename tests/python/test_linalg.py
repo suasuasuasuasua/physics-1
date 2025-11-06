@@ -84,7 +84,7 @@ def test_Vector2_DivSelf():
 def test_Vector2_toString():
     x = Vector2(1, 2)
 
-    assert str(x) == "X: 1 Y: 2"
+    assert str(x) == "{ 1, 2 }"
 
 
 def test_Vector2_Negation():
