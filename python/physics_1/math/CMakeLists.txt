@@ -1,4 +1,4 @@
-python_add_library(
+pybind11_add_module(
   _math
   MODULE
   main.cpp
@@ -9,7 +9,7 @@ python_add_library(
 
 # This is passing in the version as a define just as an example
 target_compile_definitions(_math PRIVATE VERSION_INFO=${PROJECT_VERSION})
-target_link_libraries(_math PRIVATE pybind11::headers linalg)
+target_link_libraries(_math PRIVATE linalg)
 
 # The install directory is the output (wheel) directory
 install(TARGETS _math DESTINATION physics_1/math)
