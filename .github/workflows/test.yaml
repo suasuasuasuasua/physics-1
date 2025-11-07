@@ -7,11 +7,11 @@ on:
     branches:
       - main
     paths:
-      - 'CMakeLists.txt'
+      - '**/CMakeLists.txt'
       - 'inc/**'
       - 'pyproject.toml'
-      - 'python/**'
       - 'pyproject.toml'
+      - 'python/**'
       - 'tests/**'
 
 jobs:
