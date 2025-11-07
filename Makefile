@@ -11,6 +11,8 @@ build-container:
 	mkdir -p dist
 	docker cp phys-builder:/app/wheelhouse/. dist/
 	docker container rm phys-builder
+bump:
+	cz bump -s
 # install the python package
 install:
 	pip install . --no-deps --force-reinstall -v
