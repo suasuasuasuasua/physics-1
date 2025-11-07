@@ -2,6 +2,13 @@ build:
 	cmake -S . -B build
 	cmake --build build
 # install the python package
+build-container:
+	docker build . -f Containerfile -t phys
+	docker container rm phys-builder
+	docker create --name phys-builder --rm phys
+	docker cp phys-builder:/app/dist/ .
+	docker cp phys-builder:/app/wheelhouse/ dist/
+# install the python package
 install:
 	pip install . --no-deps --force-reinstall -v
 # generate python stubs
