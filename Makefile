@@ -3,11 +3,12 @@ build:
 	cmake --build build
 # install the python package
 build-container:
-	docker build . -f Containerfile -t phys
-	docker container rm phys-builder
-	docker create --name phys-builder --rm phys
+	docker build . -f Containerfile -t phys --build-arg PLATFORM_ARCH=$${PLATFORM_ARCH:-x86_64}
+	docker container rm phys-builder || true
+	docker create --name phys-builder phys
 	docker cp phys-builder:/app/dist/ .
 	docker cp phys-builder:/app/wheelhouse/ dist/
+	docker container rm phys-builder
 # install the python package
 install:
 	pip install . --no-deps --force-reinstall -v
