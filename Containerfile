@@ -1,4 +1,11 @@
-FROM quay.io/pypa/manylinux_2_28_aarch64
+# Build argument to specify manylinux platform architecture
+# Supports: x86_64 (default), aarch64
+# Usage:
+#   docker build --build-arg PLATFORM_ARCH=x86_64 -f Containerfile -t phys .
+#   docker build --build-arg PLATFORM_ARCH=aarch64 -f Containerfile -t phys .
+ARG PLATFORM_ARCH=x86_64
+
+FROM quay.io/pypa/manylinux_2_28_${PLATFORM_ARCH}
 
 WORKDIR /app
 

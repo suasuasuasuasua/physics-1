@@ -43,6 +43,12 @@ make test
 
 # clean the cached directory
 make clean
+
+# build container (defaults to x86_64)
+make build-container
+
+# build container for aarch64
+PLATFORM_ARCH=aarch64 make build-container
 ```
 
 ## Course Material
