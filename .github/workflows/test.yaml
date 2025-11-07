@@ -8,11 +8,9 @@ on:
       - main
     paths:
       - '**/CMakeLists.txt'
-      - 'inc/**'
       - 'pyproject.toml'
-      - 'pyproject.toml'
-      - 'python/**'
-      - 'tests/**'
+      - '**/*.h'
+      - '**/*.cpp'
 
 jobs:
   build:
