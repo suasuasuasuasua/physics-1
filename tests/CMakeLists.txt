@@ -1,3 +1,5 @@
+set(BUILD_GMOCK OFF)
+
 add_subdirectory(${CMAKE_SOURCE_DIR}/extern/googletest
                  ${PROJECT_BINARY_DIR}/extern/googletest)
 
