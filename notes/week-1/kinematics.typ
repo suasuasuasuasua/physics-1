@@ -25,6 +25,21 @@
   - Distance is a *scalar* quantity
 - Displacement
   - Describes a change in position after some time $Delta t$
+- *Veclocity*
+  - Describes the speed and direction, or change in position, of an object
+- *Acceleration*
+  - Describes the changes in speed of an object
+  - It is somewhat of an abstract idea (though very real) because it is hard to
+    judge with the human eye what the acceleration of an object is
+  - Nevertheless, we can calculate it if we know the function of position or
+    velocity for an object
+- Taking *components of vectors* is the idea of breaking down vectors into unit
+  vectors like $hat(i)$ or $hat(j)$
+  - For example, $arrow(a)(t) = a_x(t) hat(i) + a_y(t) hat(j) + a_z(t) hat(k)$
+- Integration is the inverse operation of the derivative. This technique is used
+  to calculate regions of area, volume, and more
+  - The idea is that we sum up infinitely tiny slices of rectangles given some
+    function
 
 == Equations
 
@@ -49,6 +64,12 @@
     arrow(v)(t) = dif / (dif t) arrow(r)(t)
   $
   - graphically, this is the slope of the tangent line at $t_i$
+- The average and instantaneous velocity can be described in the same way as
+  velocity, except this time in terms of the change in velocity
+  $
+    arrow(a)(t) &= dif / (dif t) arrow(v)(t) \
+    &= dif / (dif t) arrow(v)(t) \
+  $
 
 == Reference
 
