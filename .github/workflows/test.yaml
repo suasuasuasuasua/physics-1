@@ -6,6 +6,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'CMakeLists.txt'
+      - 'inc/**'
+      - 'pyproject.toml'
+      - 'python/**'
+      - 'pyproject.toml'
+      - 'tests/**'
 
 jobs:
   build:
