@@ -4,7 +4,7 @@ build-backend = "scikit_build_core.build"
 
 [project]
 name = "phys"
-version = "1.0.4"
+version = "1.0.5"
 description = "My adventure learning physics 1 from the ground up"
 readme = "README.md"
 authors = [{ name = "Justin Hoang", email = "justinhoang@sua.sh" }]
