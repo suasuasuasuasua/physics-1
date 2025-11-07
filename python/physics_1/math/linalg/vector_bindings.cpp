@@ -35,6 +35,10 @@ void init_vector2(py::module_ &m) {
       .def("angle", py::overload_cast<>(&Vector2::angle, py::const_))
       .def_static("from_mag_ang",
                   py::overload_cast<double, double>(&Vector2::from_mag_ang))
-      .def("__repr__", &Vector2::to_string);
+      .def("__repr__", &Vector2::to_string)
+      // copy support for Python's copy module
+      .def("__copy__", [](const Vector2 &self) { return Vector2(self); })
+      .def("__deepcopy__",
+           [](const Vector2 &self, py::dict) { return Vector2(self); });
 }
 }  // namespace math::linalg
