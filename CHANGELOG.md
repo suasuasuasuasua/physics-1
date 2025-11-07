@@ -1,3 +1,17 @@
+## 1.0.1 (2025-11-07)
+
+## 1.0.0 (2025-11-07)
+
+### Refactor
+
+- rename project as phys instead of physics_1
+
+## 0.2.9 (2025-11-07)
+
+### Fix
+
+- **tests**: fix broken tests on string output change
+
 ## 0.2.8 (2025-11-05)
 
 ### Fix
