@@ -1,7 +1,9 @@
 build:
 	cmake -S . -B build
 	cmake --build build
-# install the python package
+# Build container for the specified platform architecture
+# Usage: make build-container (defaults to x86_64)
+#        PLATFORM_ARCH=aarch64 make build-container
 build-container:
 	docker build . -f Containerfile -t phys --build-arg PLATFORM_ARCH=$${PLATFORM_ARCH:-x86_64}
 	docker container rm phys-builder || true
