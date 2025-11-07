@@ -8,8 +8,8 @@ build-container:
 	docker build . -f Containerfile -t phys --build-arg PLATFORM_ARCH=$${PLATFORM_ARCH:-x86_64}
 	docker container rm phys-builder || true
 	docker create --name phys-builder phys
-	docker cp phys-builder:/app/dist/ .
-	docker cp phys-builder:/app/wheelhouse/ dist/
+	mkdir -p dist
+	docker cp phys-builder:/app/wheelhouse/. dist/
 	docker container rm phys-builder
 # install the python package
 install:
