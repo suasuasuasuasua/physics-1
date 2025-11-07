@@ -1,3 +1,9 @@
+## 1.0.6 (2025-11-07)
+
+### Fix
+
+- add commitizen recipe and depenency
+
 ## 1.0.5 (2025-11-07)
 
 ### Fix
