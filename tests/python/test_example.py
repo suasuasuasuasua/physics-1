@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from physics_1.example import functions
+from phys.example import functions
 
 
 def test_add():

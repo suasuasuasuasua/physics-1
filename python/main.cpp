@@ -11,7 +11,7 @@ PYBIND11_MODULE(_core, m, py::mod_gil_not_used(),
         Top Level Physics 1 Module
         -----------------------
 
-        .. currentmodule:: physics_1
+        .. currentmodule:: phys
 
         .. autosummary::
            :toctree: _generate

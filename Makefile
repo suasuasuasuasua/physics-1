@@ -6,7 +6,7 @@ install:
 	pip install . --no-deps --force-reinstall -v
 # generate python stubs
 stubs:
-	pybind11-stubgen --output python physics_1
+	pybind11-stubgen --output python phys
 # package as wheel
 wheel:
 	python -m build --wheel

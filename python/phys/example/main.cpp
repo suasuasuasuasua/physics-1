@@ -12,7 +12,7 @@ PYBIND11_MODULE(_example, m, py::mod_gil_not_used(),
         Physics 1 Example Module
         -----------------------
 
-        .. currentmodule:: physics_1
+        .. currentmodule:: phys
 
         .. autosummary::
            :toctree: _generate

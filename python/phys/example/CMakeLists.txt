@@ -5,4 +5,4 @@ target_compile_definitions(_example PRIVATE VERSION_INFO=${PROJECT_VERSION})
 target_link_libraries(_example PRIVATE example)
 
 # The install directory is the output (wheel) directory
-install(TARGETS _example DESTINATION physics_1/example)
+install(TARGETS _example DESTINATION phys/example)

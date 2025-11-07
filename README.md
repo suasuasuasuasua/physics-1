@@ -1,4 +1,4 @@
-# Physics 1
+# Physics
 
 > A repository dedicated to me learning physics from the ground up.
 
@@ -9,8 +9,7 @@ truly grasped the material; I only learned how to take tests and do homework.
 This repository has a few goals
 
 - Work through an undergraduate level physics class at my own pace to fully
-understand the material
-- Improve my C++ skills outside of work
+understand the material - Improve my C++ skills outside of work
 - Work through and implement the practice problems as test cases to ensure that
 my code works
 

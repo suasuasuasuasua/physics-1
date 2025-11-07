@@ -3,7 +3,7 @@ requires = ["scikit-build-core", "pybind11"]
 build-backend = "scikit_build_core.build"
 
 [project]
-name = "physics_1"
+name = "phys"
 version = "0.2.8"
 description = "My adventure learning physics 1 from the ground up"
 readme = "README.md"
@@ -21,7 +21,7 @@ test = ["pytest>=8.4.2"]
 build-dir = "build"
 build.verbose = false
 cmake.build-type = "Release"
-wheel.packages = ["python/physics_1"]
+wheel.packages = ["python/phys"]
 
 # https://docs.astral.sh/ruff/configuration/
 [tool.ruff]

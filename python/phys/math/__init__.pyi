@@ -1,15 +1,16 @@
 """
 
-        Physics 1 Example Module
+        Physics 1 Math Module
         -----------------------
 
-        .. currentmodule:: physics_1
+        .. currentmodule:: phys
 
         .. autosummary::
            :toctree: _generate
     
 """
 from __future__ import annotations
-from . import functions
-__all__: list[str] = ['functions']
+from . import _math
+from . import linalg
+__all__: list = ['__doc__', '__version__', 'linalg']
 __version__: str = '0.1.0'

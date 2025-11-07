@@ -12,4 +12,4 @@ target_compile_definitions(_math PRIVATE VERSION_INFO=${PROJECT_VERSION})
 target_link_libraries(_math PRIVATE linalg)
 
 # The install directory is the output (wheel) directory
-install(TARGETS _math DESTINATION physics_1/math)
+install(TARGETS _math DESTINATION phys/math)

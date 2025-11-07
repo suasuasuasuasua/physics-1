@@ -9,7 +9,7 @@ pybind11_add_module(_core MODULE main.cpp WITH_SOABI)
 target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
 # The install directory is the output (wheel) directory
-install(TARGETS _core DESTINATION physics_1)
+install(TARGETS _core DESTINATION phys)
 
-add_subdirectory(physics_1/math)
-add_subdirectory(physics_1/example)
+add_subdirectory(phys/math)
+add_subdirectory(phys/example)
