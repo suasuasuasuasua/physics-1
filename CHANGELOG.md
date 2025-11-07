@@ -1,3 +1,12 @@
+## 1.0.4 (2025-11-07)
+
+### Fix
+
+- **ci**: reduce complexity of on-push file paths
+- **tests**: disable gmock builds
+- **ci**: build on CMakeLists.txt changes too
+- **ci**: only build on changes to build inputs
+
 ## 1.0.3 (2025-11-07)
 
 ### Fix
