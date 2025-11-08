@@ -25,6 +25,8 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         
+        # Using Python 3.13 to match the project's development environment
+        # The project requires Python >= 3.11, but 3.13 is used in devenv.nix
         python = pkgs.python313;
         pythonPackages = python.pkgs;
 

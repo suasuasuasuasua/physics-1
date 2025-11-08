@@ -42,7 +42,14 @@ nix develop
 
 # Run the package directly without installing
 nix run
+
+# Update flake dependencies
+nix flake update
 ```
+
+> **Note:** The `flake.lock` file will be automatically generated on first use
+> to pin dependency versions for reproducibility. Commit this file to version
+> control.
 
 The flake provides:
 - A derivation for the Python package with all C++ dependencies
