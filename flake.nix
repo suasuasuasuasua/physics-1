@@ -44,7 +44,7 @@
             pythonPackages.pybind11
           ];
 
-          buildInputs = with pkgs; [
+          buildInputs = [
             pythonPackages.pybind11
           ];
 
@@ -80,7 +80,7 @@
           meta = with pkgs.lib; {
             description = "A repository dedicated to learning physics from the ground up";
             homepage = "https://github.com/suasuasuasuasua/phys";
-            license = licenses.unfree; # Update with actual license if available
+            # license = licenses.unfree; # TODO: update with actual license if available
             maintainers = [ ];
             platforms = platforms.unix;
           };
