@@ -33,7 +33,7 @@ jobs:
     - name: Build and install
       run: |
         pip install --group build --group test
-        make wheel
+        ninja wheel
         pip install dist/*
     - name: Test
-      run: make test
+      run: ninja test

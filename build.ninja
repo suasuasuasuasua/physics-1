@@ -1,0 +1,105 @@
+# build.ninja - Ninja build file for phys project
+# Recipes are sorted alphabetically
+
+# Build container for the specified platform architecture
+# Usage: ninja build-container (defaults to x86_64)
+#        PLATFORM_ARCH=aarch64 ninja build-container
+rule build-container
+  command = docker build . -f Containerfile -t phys --build-arg PLATFORM_ARCH=$${PLATFORM_ARCH:-x86_64} && docker container rm phys-builder || true && docker create --name phys-builder phys && mkdir -p dist && docker cp phys-builder:/app/wheelhouse/. dist/ && docker container rm phys-builder
+  description = Building container for platform $${PLATFORM_ARCH:-x86_64}
+
+build build-container: build-container
+
+# Build the project using CMake
+rule build-project
+  command = cmake -S . -B build && cmake --build build
+  description = Building project with CMake
+
+build build: build-project
+
+# Version bump using commitizen
+rule bump-version
+  command = cz bump -s
+  description = Bumping version with commitizen
+
+build bump: bump-version
+
+# Run all CI actions
+rule run-ci
+  command = ninja build && ninja format && ninja lint && ninja test
+  description = Running all CI actions
+
+build ci: run-ci
+
+# Clean the build directory
+rule clean-build
+  command = cmake --build build --target clean && ruff clean
+  description = Cleaning build directory
+
+build clean: clean-build
+
+# Full clean - remove build directory
+rule clean-full-build
+  command = rm -rf build/
+  description = Full clean - removing build directory
+
+build clean-full: clean-full-build
+
+# Run formatting tasks
+rule format-code
+  command = find src -iname '*.h' -o -iname '*.cpp' | xargs clang-format -i && ruff format src
+  description = Formatting code
+
+build format: format-code
+
+# Install the python package
+rule install-package
+  command = pip install . --no-deps --force-reinstall -v
+  description = Installing python package
+
+build install: install-package
+
+# Run linting tasks
+rule lint-code
+  command = run-clang-tidy -p build -header-filter=".*/inc/.*" -exclude-header=".*extern.*" python src tests && ruff check python --exclude "*.pyi"
+  description = Linting code
+
+build lint: lint-code
+
+# Generate python stubs
+rule generate-stubs
+  command = pybind11-stubgen --output python phys
+  description = Generating python stubs
+
+build stubs: generate-stubs
+
+# Run all tests
+rule run-all-tests
+  command = ninja test-cpp && ninja test-python
+  description = Running all tests
+
+build test: run-all-tests
+
+# Run C++ core unit tests
+rule run-cpp-tests
+  command = cd build/tests && ctest --output-on-failure
+  description = Running C++ unit tests
+
+build test-cpp: run-cpp-tests
+
+# Run python problem set tests
+rule run-python-tests
+  command = python -m pytest -v
+  description = Running python tests
+
+build test-python: run-python-tests
+
+# Package as wheel
+rule build-wheel
+  command = python -m build --wheel
+  description = Building python wheel
+
+build wheel: build-wheel
+
+# Default target
+default build
