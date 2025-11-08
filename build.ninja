@@ -84,6 +84,7 @@ build test-python: run
 build wheel: run
   cmd = python -m build --wheel
   desc = Building python wheel
+  pool = console
 
 # Default target
 default build
