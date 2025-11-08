@@ -11,21 +11,21 @@ at the same time.
 
 ### Required Before Each Commit
 
-- Run `make ci` before committing any changes to ensure proper code formatting
+- Run `ninja ci` before committing any changes to ensure proper code formatting
 and that unit tests are still passing
-- Run `make stubs` to autogenerate any additional python stubs from the pybind11
+- Run `ninja stubs` to autogenerate any additional python stubs from the pybind11
 integration
 
 ### Development Flow
 
-These are important Makefile commands
+These are important build.ninja commands
 
-- Build: `make build`
-- Install: `make install` to build and install the C++ backend and python
+- Build: `ninja build`
+- Install: `ninja install` to build and install the C++ backend and python
 package
-- Test: `make test`
-- Clean: `make clean`
-    - Full clean: `make clean-full`
+- Test: `ninja test`
+- Clean: `ninja clean`
+    - Full clean: `ninja clean-full`
 
 ## Repository Structure
 - `src/`: main code for the physics and math engine

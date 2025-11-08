@@ -20,35 +20,35 @@ Ensure that these programs are installed.
 ```text
 cmake
 gcc (or any C/C++ compiler like clang)
-make
+ninja
 python3.13
 ```
 
 See `devenv.nix` for automatic installation using `nix`.
 
-The `Makefile` has the following utility functions.
+The `build.ninja` file has the following utility functions.
 
 ```bash
 # build the python package
-make 
+ninja build
 
 # install the python package
-make install
+ninja install
 
 # build the python wheel file
-make dist
+ninja wheel
 
 # run tests in the tests/ folder
-make test
+ninja test
 
 # clean the cached directory
-make clean
+ninja clean
 
 # build container (defaults to x86_64)
-make build-container
+ninja build-container
 
 # build container for aarch64
-PLATFORM_ARCH=aarch64 make build-container
+PLATFORM_ARCH=aarch64 ninja build-container
 ```
 
 ## Course Material
