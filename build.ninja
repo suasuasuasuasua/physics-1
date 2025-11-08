@@ -7,7 +7,32 @@ rule run
   description = $desc
 
 # Build the project using CMake
-build build: run
+build build: run | $
+    CMakeLists.txt $
+    inc/example/functions.h $
+    inc/example/functions_bindings.h $
+    inc/math/constants.h $
+    inc/math/linalg/linalg_bindings.h $
+    inc/math/linalg/vector.h $
+    inc/math/linalg/vector_bindings.h $
+    inc/math/math_bindings.h $
+    python/CMakeLists.txt $
+    python/main.cpp $
+    python/phys/example/CMakeLists.txt $
+    python/phys/example/example_bindings.cpp $
+    python/phys/example/main.cpp $
+    python/phys/math/CMakeLists.txt $
+    python/phys/math/linalg/linalg_bindings.cpp $
+    python/phys/math/linalg/vector_bindings.cpp $
+    python/phys/math/main.cpp $
+    python/phys/math/math_bindings.cpp $
+    src/CMakeLists.txt $
+    src/example/CMakeLists.txt $
+    src/example/functions.cpp $
+    src/math/CMakeLists.txt $
+    src/math/linalg/CMakeLists.txt $
+    src/math/linalg/vector.cpp $
+    tests/CMakeLists.txt
   cmd = cmake -S . -B build -GNinja && cmake --build build
   desc = Building project with CMake
   pool = console
