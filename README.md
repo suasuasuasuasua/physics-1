@@ -26,6 +26,29 @@ python3.13
 
 See `devenv.nix` for automatic installation using `nix`.
 
+### Using Nix Flakes
+
+This project can be built and distributed as a Nix package using flakes:
+
+```bash
+# Build the package
+nix build
+
+# Install the package to your profile
+nix profile install .
+
+# Enter a development shell with all dependencies
+nix develop
+
+# Run the package directly without installing
+nix run
+```
+
+The flake provides:
+- A derivation for the Python package with all C++ dependencies
+- A development shell with build tools, Python, and development dependencies
+- Automatic handling of git submodules (pybind11 and googletest)
+
 The `build.ninja` file has the following utility functions.
 
 ```bash
