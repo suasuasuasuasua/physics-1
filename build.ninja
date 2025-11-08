@@ -10,6 +10,7 @@ rule run
 build build: run
   cmd = cmake -S . -B build -GNinja && cmake --build build
   desc = Building project with CMake
+  pool = console
 
 # Build container for the specified platform architecture
 # Usage: ninja build-container (defaults to x86_64)
@@ -27,6 +28,7 @@ build bump: run
 build ci: run
   cmd = ninja build && ninja format && ninja lint && ninja test
   desc = Running all CI actions
+  pool = console
 
 # Clean the build directory
 build clean: run
@@ -47,11 +49,13 @@ build format: run
 build install: run
   cmd = pip install . --no-deps --force-reinstall -v
   desc = Installing python package
+  pool = console
 
 # Run linting tasks
 build lint: run
   cmd = run-clang-tidy -p build -header-filter=".*/inc/.*" -exclude-header=".*extern.*" python src tests && ruff check python --exclude "*.pyi"
   desc = Linting code
+  pool = console
 
 # Generate python stubs
 build stubs: run
@@ -62,21 +66,25 @@ build stubs: run
 build test: run
   cmd = ninja test-cpp && ninja test-python
   desc = Running all tests
+  pool = console
 
 # Run C++ core unit tests
 build test-cpp: run
   cmd = cd build/tests && ctest --output-on-failure
   desc = Running C++ unit tests
+  pool = console
 
 # Run python problem set tests
 build test-python: run
   cmd = python -m pytest -v
   desc = Running python tests
+  pool = console
 
 # Package as wheel
 build wheel: run
   cmd = python -m build --wheel
   desc = Building python wheel
+  pool = console
 
 # Default target
 default build
