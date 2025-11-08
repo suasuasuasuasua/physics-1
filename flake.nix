@@ -59,22 +59,21 @@
           # Handle git submodules by using packages from nixpkgs
           postUnpack = ''
             # Ensure extern directories exist and populate them with nixpkgs versions
-            cd $sourceRoot
-            mkdir -p extern/pybind11
-            mkdir -p extern/googletest
+            mkdir -p $sourceRoot/extern/pybind11
+            mkdir -p $sourceRoot/extern/googletest
             
             # Use pybind11 from nixpkgs if not already present
-            if [ ! -f extern/pybind11/CMakeLists.txt ]; then
+            if [ ! -f $sourceRoot/extern/pybind11/CMakeLists.txt ]; then
               echo "Populating pybind11 from nixpkgs..."
-              cp -r ${pythonPackages.pybind11.src}/* extern/pybind11/
-              chmod -R u+w extern/pybind11
+              cp -r ${pythonPackages.pybind11.src}/* $sourceRoot/extern/pybind11/
+              chmod -R u+w $sourceRoot/extern/pybind11
             fi
             
             # Use googletest from nixpkgs if not already present
-            if [ ! -f extern/googletest/CMakeLists.txt ]; then
+            if [ ! -f $sourceRoot/extern/googletest/CMakeLists.txt ]; then
               echo "Populating googletest from nixpkgs..."
-              cp -r ${pkgs.gtest.src}/* extern/googletest/
-              chmod -R u+w extern/googletest
+              cp -r ${pkgs.gtest.src}/* $sourceRoot/extern/googletest/
+              chmod -R u+w $sourceRoot/extern/googletest
             fi
           '';
 
