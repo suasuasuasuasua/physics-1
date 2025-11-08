@@ -49,6 +49,42 @@ The flake provides:
 - A development shell with build tools, Python, and development dependencies
 - Automatic handling of git submodules (pybind11 and googletest)
 
+#### Using in other Nix configurations
+
+You can add this package to your NixOS configuration or home-manager:
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    phys.url = "github:suasuasuasuasua/phys";
+  };
+
+  outputs = { self, nixpkgs, phys }: {
+    # For NixOS system configuration
+    nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ({ pkgs, ... }: {
+          environment.systemPackages = [ phys.packages.${pkgs.system}.default ];
+        })
+      ];
+    };
+  };
+}
+```
+
+Or use it in a shell.nix:
+
+```nix
+let
+  phys = builtins.getFlake "github:suasuasuasuasua/phys";
+in
+  pkgs.mkShell {
+    buildInputs = [ phys.packages.${pkgs.system}.default ];
+  }
+```
+
 The `build.ninja` file has the following utility functions.
 
 ```bash
