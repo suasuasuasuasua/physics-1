@@ -42,9 +42,6 @@
             ninja
             pythonPackages.scikit-build-core
             pythonPackages.pybind11
-            pythonPackages.pip
-            pythonPackages.setuptools
-            pythonPackages.wheel
           ];
 
           buildInputs = with pkgs; [
@@ -55,12 +52,14 @@
             numpy
           ];
 
-          # Don't run tests during the build phase since they require the package to be installed
+          # Disable checks during build
+          dontUseCmakeConfigure = true;
           doCheck = false;
 
           # Handle git submodules by using packages from nixpkgs
-          preConfigure = ''
+          postUnpack = ''
             # Ensure extern directories exist and populate them with nixpkgs versions
+            cd $sourceRoot
             mkdir -p extern/pybind11
             mkdir -p extern/googletest
             
