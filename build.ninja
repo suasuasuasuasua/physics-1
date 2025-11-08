@@ -8,7 +8,7 @@ rule run
 
 # Build the project using CMake
 build build: run
-  cmd = cmake -S . -B build && cmake --build build
+  cmd = cmake -S . -B build -GNinja && cmake --build build
   desc = Building project with CMake
 
 # Build container for the specified platform architecture
