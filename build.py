@@ -97,7 +97,10 @@ def cmd_clean(args: argparse.Namespace) -> None:
         run_command(["cmake", "--build", "build", "--target", "clean"])
     
     # Clean ruff cache, ignore errors
-    subprocess.run(["ruff", "clean"], stderr=subprocess.DEVNULL, check=False)
+    try:
+        subprocess.run(["ruff", "clean"], stderr=subprocess.DEVNULL, check=False)
+    except FileNotFoundError:
+        pass  # ruff not installed, skip
 
 
 def cmd_clean_full(args: argparse.Namespace) -> None:
@@ -125,7 +128,10 @@ def cmd_format(args: argparse.Namespace) -> None:
         run_command(["clang-format", "-i"] + files)
     
     # Format Python files, ignore errors
-    subprocess.run(["ruff", "format", "src"], stderr=subprocess.DEVNULL, check=False)
+    try:
+        subprocess.run(["ruff", "format", "src"], stderr=subprocess.DEVNULL, check=False)
+    except FileNotFoundError:
+        pass  # ruff not installed, skip
 
 
 def cmd_install(args: argparse.Namespace) -> None:
@@ -146,10 +152,13 @@ def cmd_lint(args: argparse.Namespace) -> None:
     ])
     
     # Run ruff check, ignore errors
-    subprocess.run(
-        ["ruff", "check", "python", "--exclude", "*.pyi"],
-        stderr=subprocess.DEVNULL, check=False
-    )
+    try:
+        subprocess.run(
+            ["ruff", "check", "python", "--exclude", "*.pyi"],
+            stderr=subprocess.DEVNULL, check=False
+        )
+    except FileNotFoundError:
+        pass  # ruff not installed, skip
 
 
 def cmd_stubs(args: argparse.Namespace) -> None:
