@@ -28,44 +28,50 @@ See `devenv.nix` for automatic installation using `nix`.
 
 ### Using the Build Script
 
-The `build.sh` script provides all build and development tasks:
+The `build.py` script provides all build and development tasks with support for subcommands and flags:
 
 ```bash
 # build the python package
-./build.sh build
+python3 build.py build
 
 # install the python package
-./build.sh install
+python3 build.py install
 
 # build the python wheel file
-./build.sh wheel
+python3 build.py wheel
 
 # run tests in the tests/ folder
-./build.sh test
+python3 build.py test
+
+# run tests with verbose output
+python3 build.py test --verbose
 
 # clean the cached directory
-./build.sh clean
+python3 build.py clean
 
 # full clean (remove build directory)
-./build.sh clean-full
+python3 build.py clean-full
 
 # run all CI tasks (build, format, lint, test)
-./build.sh ci
+python3 build.py ci
 
 # format code
-./build.sh format
+python3 build.py format
 
 # lint code
-./build.sh lint
+python3 build.py lint
 
 # build container (defaults to x86_64)
-./build.sh build-container
+python3 build.py build-container
 
 # build container for aarch64
-./build.sh build-container aarch64
+python3 build.py build-container --platform aarch64
 
-# show all available commands
-./build.sh help
+# show all available commands and options
+python3 build.py --help
+
+# show help for a specific command
+python3 build.py build-container --help
 ```
 
 ## Course Material
