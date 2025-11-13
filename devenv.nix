@@ -12,6 +12,7 @@
       venv.enable = true;
       version = "3.13";
     };
+    typst.enable = true;
   };
 
   # disable automatic cache management
