@@ -16,7 +16,7 @@ Vector2 Vector2::operator*(double scalar) const {
 }
 Vector2 Vector2::operator/(double scalar) const {
   if (scalar == 0.0) {
-    throw std::invalid_argument("Vector divison must not be by zero");
+    throw std::invalid_argument("Vector division must not be by zero");
   }
   return {x_ / scalar, y_ / scalar};
 }
@@ -37,7 +37,7 @@ Vector2 &Vector2::operator*=(double scalar) {
 }
 Vector2 &Vector2::operator/=(double scalar) {
   if (scalar == 0.0) {
-    throw std::invalid_argument("Vector divison must not be by zero");
+    throw std::invalid_argument("Vector division must not be by zero");
   }
   x_ /= scalar;
   y_ /= scalar;
