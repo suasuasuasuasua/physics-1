@@ -28,50 +28,50 @@ See `devenv.nix` for automatic installation using `nix`.
 
 ### Using the Build Script
 
-The `build.py` script provides all build and development tasks with support for subcommands and flags:
+The `setup.py` script provides all build and development tasks with support for subcommands and flags:
 
 ```bash
 # build the python package
-python3 build.py build
+python3 setup.py build
 
 # install the python package
-python3 build.py install
+python3 setup.py install
 
 # build the python wheel file
-python3 build.py wheel
+python3 setup.py wheel
 
 # run tests in the tests/ folder
-python3 build.py test
+python3 setup.py test
 
 # run tests with verbose output
-python3 build.py test --verbose
+python3 setup.py test --verbose
 
 # clean the cached directory
-python3 build.py clean
+python3 setup.py clean
 
 # full clean (remove build directory)
-python3 build.py clean-full
+python3 setup.py clean-full
 
 # run all CI tasks (build, format, lint, test)
-python3 build.py ci
+python3 setup.py ci
 
 # format code
-python3 build.py format
+python3 setup.py format
 
 # lint code
-python3 build.py lint
+python3 setup.py lint
 
 # build container (defaults to x86_64)
-python3 build.py build-container
+python3 setup.py build-container
 
 # build container for aarch64
-python3 build.py build-container --platform aarch64
+python3 setup.py build-container --platform aarch64
 
 # show all available commands and options
-python3 build.py --help
+python3 setup.py --help
 
 # show help for a specific command
-python3 build.py build-container --help
+python3 setup.py build-container --help
 ```
 
 ## Course Material

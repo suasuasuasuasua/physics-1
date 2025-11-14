@@ -23,14 +23,14 @@ RUN --mount=type=cache,target=/root/.cache python3.12 -m venv venv \
 	&& pip install build auditwheel pytest wheel
 
 COPY extern extern
-COPY CMakeLists.txt build.py README.md ./
+COPY CMakeLists.txt setup.py README.md ./
 COPY tests tests
 COPY inc inc
 COPY src src
 COPY python python
 
 RUN . venv/bin/activate \
-	&& python3 build.py install \
-	&& python3 build.py test \
-	&& python3 build.py wheel \
+	&& python3 setup.py install \
+	&& python3 setup.py test \
+	&& python3 setup.py wheel \
 	&& python -m auditwheel repair dist/*.whl
