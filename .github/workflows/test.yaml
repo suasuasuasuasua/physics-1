@@ -33,6 +33,6 @@ jobs:
     - name: Build and install
       run: |
         pip install --group build --group test
-        ninja install
+        python setup.py install
     - name: Test
-      run: ninja test
+      run: python setup.py test

@@ -26,29 +26,52 @@ python3.13
 
 See `devenv.nix` for automatic installation using `nix`.
 
-The `build.ninja` file has the following utility functions.
+### Using the Build Script
+
+The `setup.py` script provides all build and development tasks with support for subcommands and flags:
 
 ```bash
 # build the python package
-ninja build
+python3 setup.py build
 
 # install the python package
-ninja install
+python3 setup.py install
 
 # build the python wheel file
-ninja wheel
+python3 setup.py wheel
 
 # run tests in the tests/ folder
-ninja test
+python3 setup.py test
+
+# run tests with verbose output
+python3 setup.py test --verbose
 
 # clean the cached directory
-ninja clean
+python3 setup.py clean
+
+# full clean (remove build directory)
+python3 setup.py clean-full
+
+# run all CI tasks (build, format, lint, test)
+python3 setup.py ci
+
+# format code
+python3 setup.py format
+
+# lint code
+python3 setup.py lint
 
 # build container (defaults to x86_64)
-ninja build-container
+python3 setup.py build-container
 
 # build container for aarch64
-PLATFORM_ARCH=aarch64 ninja build-container
+python3 setup.py build-container --platform aarch64
+
+# show all available commands and options
+python3 setup.py --help
+
+# show help for a specific command
+python3 setup.py build-container --help
 ```
 
 ## Course Material
