@@ -93,15 +93,6 @@ def cmd_bump(args: argparse.Namespace) -> None:
     run_command(["cz", "bump", "-s"])
 
 
-def cmd_ci(args: argparse.Namespace) -> None:
-    """Run all CI actions."""
-    print_step("Running all CI actions")
-    cmd_build(args)
-    cmd_format(args)
-    cmd_lint(args)
-    cmd_test(args)
-
-
 def cmd_clean(args: argparse.Namespace) -> None:
     """Clean the build directory."""
     print_step("Cleaning build directory")
@@ -274,12 +265,6 @@ Examples:
     # Bump command
     parser_bump = subparsers.add_parser("bump", help="Version bump using commitizen")
     parser_bump.set_defaults(func=cmd_bump)
-
-    # CI command
-    parser_ci = subparsers.add_parser(
-        "ci", help="Run all CI actions (build, format, lint, test)"
-    )
-    parser_ci.set_defaults(func=cmd_ci)
 
     # Clean command
     parser_clean = subparsers.add_parser("clean", help="Clean the build directory")

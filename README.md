@@ -52,9 +52,6 @@ python3 setup.py clean
 # full clean (remove build directory)
 python3 setup.py clean-full
 
-# run all CI tasks (build, format, lint, test)
-python3 setup.py ci
-
 # format code
 python3 setup.py format
 
